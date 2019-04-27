@@ -1,0 +1,13 @@
+spring:
+  # mvc:
+  #   servlet:
+  #     path: 
+  #Local MongoDB config
+  data:
+    mongodb:
+      database: micro_services_test
+      host: localhost
+      port: 27017
+  application:
+    name: client-gestionar-jugadores
+    

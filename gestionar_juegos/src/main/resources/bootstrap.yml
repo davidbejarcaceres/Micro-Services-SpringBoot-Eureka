@@ -1,0 +1,7 @@
+spring:
+  # mvc:
+  #   servlet:
+  #     path: 
+  application:
+    name: client-gestionar-juegos
+    

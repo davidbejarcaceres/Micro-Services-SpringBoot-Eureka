@@ -8,7 +8,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(collectionResourceRel = "games", path = "games_API_INFO")
 public interface GamesRepository extends MongoRepository<Games, String> {
-
   Games findBy_id(ObjectId _id);
   public List<Games> findByName(String name);
 }
+
+
+
+

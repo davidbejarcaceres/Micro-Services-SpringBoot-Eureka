@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,14 +20,28 @@ import io.swagger.annotations.ApiResponses;
 
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/games")
 public class GamesController {
 
   @Autowired
   private GamesRepository repository;
 
+  //@CrossOrigin(origins = "*")
   @RequestMapping(value = "", method = RequestMethod.GET)
   public @ResponseBody  List<Games> getAllGames() {
+    return repository.findAll();
+  }
+
+  //@CrossOrigin(origins = "*")
+  @RequestMapping(value = "/", method = RequestMethod.GET)
+  public @ResponseBody  List<Games> getAllBarra() {
+    return repository.findAll();
+  }
+
+  //@CrossOrigin(origins = "*")
+  @RequestMapping(value = "/todos", method = RequestMethod.GET)
+  public @ResponseBody  List<Games> getAllTodo() {
     return repository.findAll();
   }
 

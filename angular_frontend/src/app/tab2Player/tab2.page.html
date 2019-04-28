@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Player
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-card class="welcome-card" >
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-img src="/icon/favicon.png"></ion-img>
+        <ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-card-subtitle>Your info</ion-card-subtitle>
+          <ion-card-title>{{actual_player.firstname}} {{actual_player.lastname}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-label>age {{actual_player.age}}</ion-label>
+        </ion-card-content>
+      </ion-card>
+
+
+
+
+
+  <ion-button expand="block" (click)="searchGames()">
+    Search and add Games
+  </ion-button>
+
+  <ion-button  expand="block" (click)="myGames()">
+      My Games
+  </ion-button>
+
+  <ion-button  expand="block" (click)="searchPlayers()">
+      Search and follow players
+  </ion-button>
+</ion-content>

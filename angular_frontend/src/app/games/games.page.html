@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1">
+        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Games</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-list>
+  <ion-item button *ngFor="let game of games" [routerLink]="['game-detail', game]" routerDirection="forward">
+    <ion-ripple-effect></ion-ripple-effect>
+
+    <ion-label>
+        <h2>{{game.name}}</h2>
+
+        <p>{{game.description}}</p>
+    </ion-label>
+
+  </ion-item>
+</ion-list>
+
+</ion-content>

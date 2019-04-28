@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs/tab1/games">
+          <ion-ripple-effect type="bounded"></ion-ripple-effect>
+        </ion-back-button>
+      </ion-buttons>
+    <ion-title>Game Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card class="welcome-card" >
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-img src={{game.portada}}></ion-img>
+        <ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-card-subtitle>{{game._id}}</ion-card-subtitle>
+          <ion-card-title>
+            <!-- Inputs with labels -->
+            <ion-item>
+              <ion-label position="stacked">Edit title</ion-label>
+              <ion-input>{{game.name}}</ion-input>
+            </ion-item>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- Input with placeholder -->
+          <ion-item >
+              <ion-input id="descriptionInput" placeholder={{game.description}}>
+              </ion-input>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-button (click)="deleteGame()" expand="block">
+          <ion-ripple-effect></ion-ripple-effect>
+          Delete Game
+        </ion-button>
+        <ion-button (click)="updateGame()" expand="block">
+            <ion-ripple-effect></ion-ripple-effect>
+            Save Changes
+          </ion-button>
+
+</ion-content>

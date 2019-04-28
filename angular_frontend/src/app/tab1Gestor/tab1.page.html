@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Gestor
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card" [routerLink]="['games']" routerDirection="forward">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-card-header>
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-card-subtitle></ion-card-subtitle>
+        <ion-card-title>Manage Games</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-ripple-effect></ion-ripple-effect>
+
+        <p>From here you can list all games, create one, delete or update a game</p>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card class="welcome-card">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-img src="/assets/shapes.svg"></ion-img>
+        <ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-card-subtitle></ion-card-subtitle>
+          <ion-card-title>Manage Players</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-ripple-effect></ion-ripple-effect>
+          
+          <p>From here you can list all players, create one, delete or update a player</p>
+        </ion-card-content>
+      </ion-card>
+</ion-content>

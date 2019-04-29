@@ -13,10 +13,10 @@ export class GamesPage implements OnInit {
   games = [];
 
   constructor(private gamesServiceRepo: GamesServiceService ) {
-    this.getRepo();
+    this.getGames();
    }
 
-  public getRepo(){
+  public getGames(){
     this.gamesServiceRepo.getGames().subscribe(async reposArray => {
       this.games = <Game[]>reposArray;
       console.log(this.games);

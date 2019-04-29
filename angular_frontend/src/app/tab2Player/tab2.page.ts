@@ -15,10 +15,6 @@ export class Tab2Page {
 
   constructor(public activatedRoute: ActivatedRoute) {
 
-    // this.actual_player.setFirstName("David");
-    // this.actual_player.setLastName("Bejar");
-    // this.actual_player.setAge("24");
-
    }
   // List the games of the player
   myGames(){

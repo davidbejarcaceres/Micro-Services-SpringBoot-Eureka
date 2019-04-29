@@ -20,26 +20,23 @@ import io.swagger.annotations.ApiResponses;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*") //CORS security, Allows coneccting to the API from external paths.
 @RequestMapping("/games")
 public class GamesController {
 
   @Autowired
   private GamesRepository repository;
 
-  //@CrossOrigin(origins = "*")
   @RequestMapping(value = "", method = RequestMethod.GET)
   public @ResponseBody  List<Games> getAllGames() {
     return repository.findAll();
   }
 
-  //@CrossOrigin(origins = "*")
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public @ResponseBody  List<Games> getAllBarra() {
     return repository.findAll();
   }
 
-  //@CrossOrigin(origins = "*")
   @RequestMapping(value = "/todos", method = RequestMethod.GET)
   public @ResponseBody  List<Games> getAllTodo() {
     return repository.findAll();

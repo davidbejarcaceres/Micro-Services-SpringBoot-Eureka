@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
-const URLGAMES = 'http://localhost:53915/games/';
+const URLGAMES = 'http://localhost:52716/games/';
+const URLPLAYERS = 'http://localhost:53178/players/';
 
 
 @Injectable({
@@ -25,6 +26,10 @@ export class GamesServiceService {
   getGames(){
     let url = URLGAMES + "";
     return this.http.get(url).pipe(map(res => <Game[]>res.json()));
+  }
+
+  public getPlayers(): Observable<[]> { 
+    return this.http.get(URLPLAYERS).pipe(map(res => <[]>res.json()));
   }
 
 

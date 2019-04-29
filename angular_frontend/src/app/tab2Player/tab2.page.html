@@ -9,9 +9,9 @@
 <ion-content>
 
 
-    <ion-card class="welcome-card" >
+    <ion-card class="welcome-card">
         <ion-ripple-effect></ion-ripple-effect>
-        <ion-img src="/icon/favicon.png"></ion-img>
+        <ion-img src="/assets/user256x256.png"></ion-img>
         <ion-card-header>
           <ion-ripple-effect></ion-ripple-effect>
           <ion-card-subtitle>Your info</ion-card-subtitle>
@@ -26,7 +26,7 @@
 
 
 
-  <ion-button expand="block" (click)="searchGames()">
+  <ion-button expand="block"  [routerLink]="['search-add-games']" routerDirection="forward">
     Search and add Games
   </ion-button>
 

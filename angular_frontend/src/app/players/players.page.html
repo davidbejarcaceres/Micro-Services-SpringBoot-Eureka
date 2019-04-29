@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>players</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1">
+        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Players</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-button expand="block" routerDirection="forward">
+    Add Player
+  </ion-button>
+  <ion-list>
+    <ion-item button *ngFor="let player of players">
+      <ion-ripple-effect></ion-ripple-effect>
+
+      <ion-icon slot="start" name="person"></ion-icon>
+      <ion-label>
+          <h2>{{player.name}} {{player.lastname}}</h2>
+          <p>age: {{player.age}}</p>
+          <p>dni: {{player.dni}}</p>
+        <ion-list >
+            <ion-list-header>
+                <ion-label>Games:</ion-label>
+            </ion-list-header>
+            <ion-item *ngFor="let game of player.games">
+                <ion-label>{{game.name}}</ion-label>
+            </ion-item>
+        </ion-list>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
 
 </ion-content>

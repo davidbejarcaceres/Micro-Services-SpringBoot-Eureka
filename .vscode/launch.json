@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<eureka_server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.dbc770.eureka_server.DemoApplication",
+            "projectName": "eureka_server",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<gestionar_juegos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.dbc770.games.gestionar_juegos.DemoApplication",
+            "projectName": "gestionar_juegos",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<gestionar_jugadores>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.dbc770.players.gestionar_jugadores.DemoApplication",
+            "projectName": "gestionar_jugadores",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<asignar_juegos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.dbc770.asignar_juegos.DemoApplication",
+            "projectName": "asignar_juegos",
+            "args": ""
+        }
+    ]
+}

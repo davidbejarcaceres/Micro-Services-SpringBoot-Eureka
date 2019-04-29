@@ -1,4 +1,4 @@
-package com.dbc770.players.gestionar_jugadores;
+package com.dbc770.asignar_juegos;
 
 import java.util.List;
 
@@ -15,5 +15,6 @@ public interface GamesRepository extends MongoRepository<Games, String> {
 
   
   Games findBy_id(ObjectId _id);
+  
   public List<Games> findByName(String name);
 }

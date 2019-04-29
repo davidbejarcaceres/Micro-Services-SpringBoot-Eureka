@@ -11,17 +11,20 @@
 
 <ion-content>
 
-<ion-list>
-  <ion-item button *ngFor="let game of games" [routerLink]="['game-detail', game]" routerDirection="forward">
-    <ion-ripple-effect></ion-ripple-effect>
+  <ion-button expand="block" routerDirection="forward">
+    Add game
+  </ion-button>
+  <ion-list>
+    <ion-item button *ngFor="let game of games" [routerLink]="['game-detail', game]" routerDirection="forward">
+      <ion-ripple-effect></ion-ripple-effect>
 
-    <ion-label>
-        <h2>{{game.name}}</h2>
+      <ion-label>
+          <h2>{{game.name}}</h2>
 
-        <p>{{game.description}}</p>
-    </ion-label>
+          <p>{{game.description}}</p>
+      </ion-label>
 
-  </ion-item>
-</ion-list>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

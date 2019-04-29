@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GamesServiceService } from '../games-service.service';
 
 @Component({
   selector: 'app-players',
@@ -7,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayersPage implements OnInit {
 
-  constructor() { }
+  players = [];
+
+  constructor(private gamesServiceRepo: GamesServiceService ) {
+    this.getPlayers();
+   }
+
+
+   public getPlayers(){
+    this.gamesServiceRepo.getPlayers().subscribe(async playersArray => {
+      this.players = playersArray;
+      console.log(this.players);
+      
+    })    
+  }
 
   ngOnInit() {
   }

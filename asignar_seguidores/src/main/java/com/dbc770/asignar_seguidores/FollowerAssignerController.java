@@ -78,6 +78,10 @@ public class FollowerAssignerController {
         if (actualPlayer.getFollowers() != null) {
           actualPlayer.followers.add(id_follower);
           repositoryPlayers.save(actualPlayer);
+        } else{
+          actualPlayer.followers = new ArrayList<ObjectId>();
+          actualPlayer.followers.add(id_follower);
+          repositoryPlayers.save(actualPlayer);
         }
       }
     }

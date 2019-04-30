@@ -1,0 +1,22 @@
+server:
+    port: ${PORT:${SERVER_PORT:0}}
+
+eureka:
+    instance:
+        hostname: localhost
+        instance-id: ${eureka.instance.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+    client:
+        service-url:
+            default-zone: http://localhost:8761/
+
+info:
+    app:
+        name: Validates DNI from players communicating with feign
+        description: Validates the data using the DNI of the Player and replies with a boolean
+        version: 1.0
+        Development State: Ready
+        Main Features: Spring Boot Data rest, MongoDB, Swagger to document and explore the API
+        Inicio API: http://localhost:${PORT:${SERVER_PORT:0}}/
+        Example: POST http://localhost:${SERVER_PORT:0}/player/{player_id}/game/{game_id}
+        Swagger: http://localhost:${SERVER_PORT:0}/swagger-ui.html
+        TODO: investigate about DNI formats

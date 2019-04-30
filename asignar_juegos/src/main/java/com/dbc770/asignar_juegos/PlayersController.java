@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*") //CORS security, Allows coneccting to the API from external paths.
+@CrossOrigin(origins = "*") //CORS security, Allows connecting to the API from external paths.
 @RestController
 @RequestMapping("")
 public class PlayersController {
@@ -35,8 +35,11 @@ public class PlayersController {
     return player;
   }
 
-  @GetMapping(value="/hi")
-  public String sayHi(){
-    return "Hi from the asignar-juegos micro-service";
+  @GetMapping(value="/hi/{name}")
+  public String sayHi(@PathVariable("name") String name){
+    if (name!= null) {
+      return ("Hi  "+ name + "  from the asignar-juegos micro-service");
+    }
+    return ("Hi  from the asignar-juegos micro-service");
   }
 }

@@ -9,7 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "players", path = "players_API_INFO")
 public interface PlayersRepository extends MongoRepository<Players, String> {
 
-  
   Players findBy_id(ObjectId _id);
-  List<Players> findByDni(String dni);
+  Players findByDni(String dni);  
 }

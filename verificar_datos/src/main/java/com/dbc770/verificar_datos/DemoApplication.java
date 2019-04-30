@@ -1,16 +1,11 @@
-package com.dbc770.players.gestionar_jugadores;
+package com.dbc770.verificar_datos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
-import io.github.kaiso.relmongo.config.EnableRelMongo;
-
-@SpringBootApplication
 @EnableDiscoveryClient
-@EnableRelMongo
-@EnableFeignClients
+@SpringBootApplication
 public class DemoApplication {
 
 	public static void main(String[] args) {

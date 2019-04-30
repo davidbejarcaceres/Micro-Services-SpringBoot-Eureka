@@ -1,4 +1,4 @@
-package com.dbc770.asignar_juegos;
+package com.dbc770.verificar_datos;
 
 import java.util.Collections;
 

@@ -8,6 +8,8 @@ import { map } from 'rxjs/operators';
 const URLGAMES = 'http://localhost:52716/games/';
 const URLPLAYERS = 'http://localhost:53178/players/';
 
+const URLGETONE= 'one';
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +32,10 @@ export class GamesServiceService {
 
   public getPlayers(): Observable<[]> { 
     return this.http.get(URLPLAYERS).pipe(map(res => <[]>res.json()));
+  }
+
+  public getFirstPlayer(): Observable <any>{
+    return this.http.get(URLPLAYERS+URLGETONE).pipe(map(firstPlayer => firstPlayer.json()));
   }
 
 

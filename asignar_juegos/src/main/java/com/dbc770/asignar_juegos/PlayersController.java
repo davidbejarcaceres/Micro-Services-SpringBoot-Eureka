@@ -35,6 +35,7 @@ public class PlayersController {
     return player;
   }
 
+  //TODO: Delete later
   @GetMapping(value="/hi/{name}")
   public String sayHi(@PathVariable("name") String name){
     if (name!= null) {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Player } from '@angular/core/src/render3/interfaces/player';
 import { ActivatedRoute } from '@angular/router';
+import { GamesServiceService } from '../games-service.service';
 
 @Component({
   selector: 'app-tab2',
@@ -9,13 +10,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class Tab2Page {
 
+  player: [];
+
 
   actual_player= new PlayerObject("David", "Bejar", "24");
   
 
-  constructor(public activatedRoute: ActivatedRoute) {
+  constructor(public activatedRoute: ActivatedRoute, private apiService: GamesServiceService) {
+    this.getFirstPlayer();
+  }
 
-   }
+
+  public getFirstPlayer(){
+   this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
+     this.player = firstPlayer;
+     console.log(this.player);
+     
+   })    
+ }
   // List the games of the player
   myGames(){
 

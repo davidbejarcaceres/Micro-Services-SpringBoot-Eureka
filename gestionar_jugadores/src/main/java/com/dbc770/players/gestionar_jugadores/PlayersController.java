@@ -1,6 +1,7 @@
 package com.dbc770.players.gestionar_jugadores;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -56,6 +57,19 @@ public class PlayersController {
   public List<Players> getPlayerByName(@PathVariable("name") String name) {
     return repositoryPlayers.findByName(name);
   }
+
+  @GetMapping(value = "/one")
+  public  ResponseEntity<?> getFirstPlayer() {
+     List<Players> repo = repositoryPlayers.findAll();
+    if ( repo != null && repo.size() > 0 && !repo.isEmpty()) {
+      return  ResponseEntity.status(200).body(repo.get(1));
+    }
+    return  ResponseEntity.status(204).body(null);
+    // Optional<Players> firstPlayer = repo.stream().findFirst();
+    // return ResponseEntity.status(200).body(firstPlayer);
+  }
+
+
 
 
   @ApiOperation("Creates a new Player, not mandatory add games, the API can but the front-end wil be doing it after")

@@ -20,14 +20,14 @@ const URLGAMES = 'http://localhost:53915/games/';
 @Injectable()
 export class Tab1Page {
   games = [];
+  urlServicioPlayers:string;
 
   constructor(private http: Http ,private gamesServiceRepo: GamesServiceService , public navCtrl: NavController) {
 
-    // console.log("INTENTANDO IMPRIMIR RESPUESTA DESDE EL MICRO-SERVICIO");
-    // this.gamesServiceRepo.getGames().subscribe(async gamesArray => {
-    //   this.games = <Game[]>gamesArray;
-    //   console.log(this.games);
-    // })
+    this.gamesServiceRepo.getURLPivote("CLIENT-GESTIONAR-JUEGOS").subscribe(async url => {
+      var urlFinal = url._body + "/games";
+      this.urlServicioPlayers = urlFinal;
+    })
   }
   
   public getRepo(){

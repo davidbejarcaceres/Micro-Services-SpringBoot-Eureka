@@ -71,20 +71,23 @@ class PlayerObject {
   private lastname: string;
   private age: string;
   private dni: string;
+  // private followers: [];
+  // private following: [];
 
-  // constructor(private _idInit: string,private firstnameInit: string, private lastnameInit:  string, private ageInit: string, private dniInit: string) {
-  //   this._id = _idInit;
-  //   this.firstname = firstnameInit;
-  //   this.lastname = lastnameInit;
-  //   this.age = ageInit;
-  //   this.dni = dniInit;
-  // }
-
-  constructor(private firstnameInit: string, private lastnameInit:  string, private ageInit: string) {
+  constructor(public firstnameInit: string, public lastnameInit:  string, public ageInit: string ) {
     this.firstname = firstnameInit;
     this.lastname = lastnameInit;
     this.age = ageInit;
+
   }
+
+  // constructor(public firstnameInit: string, public lastnameInit:  string, public ageInit: string, public followers: [], public following:[] ) {
+  //   this.firstname = firstnameInit;
+  //   this.lastname = lastnameInit;
+  //   this.age = ageInit;
+  //   this.followers = followers;
+  //   this.following = following;
+  // }
 
   getFirstName(): string {
     return this.firstname;

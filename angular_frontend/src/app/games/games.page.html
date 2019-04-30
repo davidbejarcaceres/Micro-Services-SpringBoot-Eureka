@@ -18,6 +18,10 @@
     <ion-item button *ngFor="let game of games" [routerLink]="['game-detail', game]" routerDirection="forward">
       <ion-ripple-effect></ion-ripple-effect>
 
+      <ion-avatar slot="start">
+        <img src={{game.portada}}>
+      </ion-avatar>
+
       <ion-label>
           <h2>{{game.name}}</h2>
 

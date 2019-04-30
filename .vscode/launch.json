@@ -59,6 +59,16 @@
             "mainClass": "com.dbc770.asignar_seguidores.DemoApplication",
             "projectName": "asignar_seguidores",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<lookup_services>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.dbc770.lookup_serivices.DemoApplication",
+            "projectName": "lookup_services",
+            "args": ""
         }
     ]
 }

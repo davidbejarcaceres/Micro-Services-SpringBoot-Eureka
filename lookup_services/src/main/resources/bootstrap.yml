@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      database: micro_services_test
+      host: localhost
+      port: 27017
+  application:
+    name: client-lookup-services
+    

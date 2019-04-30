@@ -11,8 +11,13 @@ export class SearchAddGamesPage implements OnInit {
 
   games = [];
   player: [];
+  urlServicioPlayers:string;
 
   constructor(private gamesServiceRepo: GamesServiceService ) {
+    this.gamesServiceRepo.getURLPivote("CLIENT-GESTIONAR-JUEGOS").subscribe(async url => {
+      var urlFinal = url._body + "/games";
+      this.urlServicioPlayers = urlFinal;
+    })
     this.getGames();
    }
 

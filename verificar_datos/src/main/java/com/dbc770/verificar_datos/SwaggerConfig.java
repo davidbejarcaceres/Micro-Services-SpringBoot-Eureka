@@ -27,8 +27,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo(){
         return new ApiInfo
-        ("Assign Game to Player API",
-        "Add a Game Document from the games collection to a Player in players collection Micro-Service using MongoDB",
+        ("Validates DNI format",
+        "validates a DNI, return boolean, ",
         "1", "termsOfServiceUrl",
         new Contact(
             "David Bejar Cacers",

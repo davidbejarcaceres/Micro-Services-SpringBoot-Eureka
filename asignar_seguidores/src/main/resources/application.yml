@@ -14,9 +14,9 @@ info:
         name: Asignador de seguidores a jugadores (Follower => Players)
         description: Asigns a Follower (Needs an ObjectId) to a Player (ObjectID) in the database micro_services
         version: 1.0
-        Development State: Needs to create the structure
+        Development State: Working perfectly
         Main Features: Spring Boot Data rest, MongoDB, Swagger to document and explore the API
         Inicio API: http://localhost:${PORT:${SERVER_PORT:0}}/
         Example: POST http://localhost:${SERVER_PORT:0}/player/{player_id}/follower/{follower_id}
         Swagger: http://localhost:${SERVER_PORT:0}/swagger-ui.html
-        TODO: Needs to define the follower entity, is it a new collection or just a reference to the ObjectId of type PLayers
+        TODO: Nothing

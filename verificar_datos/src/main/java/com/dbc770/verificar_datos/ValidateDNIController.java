@@ -1,16 +1,10 @@
 package com.dbc770.verificar_datos;
 
-import java.util.ArrayList;
-
-import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.dbc770.verificar_datos.ValidadorDNI;
 
 
 @CrossOrigin(origins = "*") //CORS security, Allows connecting to the API from external paths.

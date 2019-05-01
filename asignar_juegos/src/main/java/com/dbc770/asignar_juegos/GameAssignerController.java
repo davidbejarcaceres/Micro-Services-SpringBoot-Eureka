@@ -31,7 +31,6 @@ public class GameAssignerController {
       player.games.add(repositoryGames.findBy_id(id_game));
     }
     repositoryPlayers.save(player);
-
     return player;
   }
 

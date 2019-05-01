@@ -5,7 +5,7 @@ spring:
   #Local MongoDB config
   data:
     mongodb:
-      database: micro_services
+      database: micro_services_followers
       host: localhost
       port: 27017
   application:

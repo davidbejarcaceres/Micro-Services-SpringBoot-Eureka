@@ -18,7 +18,7 @@ public class Players {
     public String age;
     public String dni;
 
-    @DBRef(db = "micro_services_test")
+    @DBRef(db = "micro_services_followers")
     public List<Games> games;
 
 

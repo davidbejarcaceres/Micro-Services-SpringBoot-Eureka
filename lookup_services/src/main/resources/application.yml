@@ -17,6 +17,5 @@ info:
         Development State: Ready
         Main Features: Eureka Discovery Client
         Inicio API: http://localhost:5930/lookup/{service-name}
-        Example: GET http://localhost:5930/lookup/CLIENT-ASIGNAR-JUEGOS
-        Swagger: http://localhost:${SERVER_PORT:0}/swagger-ui.html
+        Example: http://localhost:5930/lookup/CLIENT-ASIGNAR-JUEGOS
         TODO: Nothing

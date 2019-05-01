@@ -27,8 +27,7 @@ export class SearchAddGamesPage implements OnInit {
     PUT http:localhost:SERVICE-PORT/APIPATH/player/{playerID}/game/{gameID}      */
     console.log("game ID added: "+ game._id);
     var player_id = this.activaterouter.snapshot.paramMap.get("_id");
-    console.log("Player ID: "+ game._id);
-    
+    console.log("Player ID: "+ player_id);
     this.gamesServiceRepo.assignGametoPlayer(player_id, game._id);
   }
 

@@ -1,9 +1,9 @@
 import { ServiceInfo } from './models/ServiceInfo';
 import { Game } from './models/Game';
-import { Http, Response, Headers } from '@angular/http'; 
+import { Http, Response, Headers, RequestOptions } from '@angular/http'; 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, retry, timeInterval, timeout, delay, take, retryWhen } from 'rxjs/operators';
 
 const LOOKUP_SERVICE = 'http://localhost:5930/lookup/';
 const LOOKUP_SERVICE_URL = 'http://localhost:5930/lookup/url/';
@@ -85,24 +85,44 @@ export class GamesServiceService {
     }));
   }
 
+  public getPlayerById(_id: string): Observable<any> {
+    var getPlayerById = this.urlPlayersBaseURL + "/" + _id;
+    return this.http.get(getPlayerById).pipe(map((res: Response) => {
+      console.log("HTTP Code: " + res.status);
+      //TODO: Add toast to show res.status code
+      return res;
+    }));
+  }
+
   public getFirstPlayer(): Observable <any>{
     var urlgetOne = this.urlPlayersBaseURL + "/one";
     return this.http.get(urlgetOne).pipe(map((res: Response) => {
       console.log("HTTP Code: " + res.status);
       //TODO: Add toast to show res.status code
-      <Game[]>res.json();
+      console.log(res.json());
+      return res;
     }));
   }
 
   assignGametoPlayer(playerId: string, gameId: string){
     //TODO: Call API to assign game to player
     var assignGameToPlayer = this.urlAssignGamesBaseURL + "/player/" + playerId + "/game/" + gameId;
-    console.log("Game Assigned to player");
-    return this.http.put(assignGameToPlayer, null).pipe(map((res: Response) => {
-      console.log("HTTP Code: " + res.status);
-      //TODO: Add toast to show res.status code
-      return <[]>res.json();
-    }));
+    console.log(assignGameToPlayer);
+
+    let body = 1; 
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    this.http.put(assignGameToPlayer, body, options)
+     .subscribe( 
+           response => {
+                         console.log("Game Assigned " + response.status);                          
+                         console.log(response.json());
+                       },
+          error => {
+                         alert(error.text());
+                         console.log(error.text());
+         });
   }
 
   public getServiceURL(serviceName: string): any{
@@ -120,7 +140,10 @@ export class GamesServiceService {
   }
 
   getURLPivote(serviceName:string): any {     
-    return this.http.get(LOOKUP_SERVICE_URL + serviceName).pipe();
+    return this.http.get(LOOKUP_SERVICE_URL + serviceName)
+    .pipe(
+      retryWhen(errors => errors.pipe(delay(10000), take(10)))
+    );
   }
 
   public getServiceInfo(): Observable<any> {

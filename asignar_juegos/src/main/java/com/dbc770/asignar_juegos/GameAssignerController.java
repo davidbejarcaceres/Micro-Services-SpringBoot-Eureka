@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*") //CORS security, Allows connecting to the API from external paths.
 @RestController
 @RequestMapping("")
-public class PlayersController {
+public class GameAssignerController {
 
   @Autowired
   private PlayersRepository repositoryPlayers;

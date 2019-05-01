@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { GamesServiceService } from '../games-service.service';
 import { Game } from '../models/Game';
 import { Router } from '@angular/router';
+import { Http, Response, Headers } from '@angular/http'; 
+
 
 
 @Component({
@@ -18,17 +20,34 @@ export class Tab2Page {
   lastname: string;
   age: string;
   games: Game[];
+  following: [];
+  followers: [];
+  playerID: string;
   
 
   constructor(public activatedRoute: ActivatedRoute, private apiService: GamesServiceService, private router: Router) {
+    console.log("CARGA TAB 2");  
     this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
-      console.log("CARGA TAB 2");
       
-      this.player = firstPlayer ;
-      this.name = firstPlayer.name;
-      this.lastname = firstPlayer.lastname;
-      this.age = firstPlayer.age;
-      this.games = firstPlayer.games;      
+      //TODO: Deletes later
+      // var playerTest = new PlayerObject(
+      // firstPlayer.json()._id
+      // ,firstPlayer.json().name
+      // ,firstPlayer.json().lastname
+      // ,firstPlayer.json().age
+      // ,firstPlayer.json().dni
+      // ,firstPlayer.json().followers
+      // ,firstPlayer.json().following
+      // );
+      this.player = firstPlayer.json();
+      this.playerID = firstPlayer.json()._id;
+      this.player = firstPlayer.json();
+      this.name = firstPlayer.json().name;
+      this.lastname = firstPlayer.json().lastname;
+      this.age = firstPlayer.json().age;
+      this.games = firstPlayer.json().games;
+      this.following = firstPlayer.json().following;
+      this.followers = firstPlayer.json().followers;
       console.log(this.player);    
     });  
   }
@@ -62,44 +81,42 @@ export class Tab2Page {
 
 
 
-
-
-
-
-
 class PlayerObject {
 
   private _id: string;
-  private firstname: string;
+  private name: string;
   private lastname: string;
   private age: string;
   private dni: string;
-  // private followers: [];
-  // private following: [];
+  private followers: [];
+  private following: [];
 
-  constructor(public firstnameInit: string, public lastnameInit:  string, public ageInit: string ) {
-    this.firstname = firstnameInit;
+  constructor(private id: string, private firstnameInit: string, private lastnameInit:  string, private ageInit: string, private DNI: string, private Followers: [], private Following: [] ) {
+    this._id = id;
+    this.name = firstnameInit;
     this.lastname = lastnameInit;
     this.age = ageInit;
-
+    this.followers = Followers;
+    this.Following = Following;
+    this.dni = DNI;
   }
 
-  // constructor(public firstnameInit: string, public lastnameInit:  string, public ageInit: string, public followers: [], public following:[] ) {
-  //   this.firstname = firstnameInit;
-  //   this.lastname = lastnameInit;
-  //   this.age = ageInit;
-  //   this.followers = followers;
-  //   this.following = following;
-  // }
+  getId(): string{
+    return this._id
+  }
 
-  getFirstName(): string {
-    return this.firstname;
+  setId(id: string){
+    this._id = id;
+  }
+
+  getName(): string {
+    return this.name;
   }
   getLastName(): string {
     return this.lastname;
   }
-  setFirstName(first: string ){
-    this.firstname = first;
+  setName(first: string ){
+    this.name = first;
   }
   setLastName(last: string){
     this.lastname = last;
@@ -110,5 +127,28 @@ class PlayerObject {
   }
   setAge(age_new: string){
     this.age = age_new;
+  }
+
+  getDNI(): string {
+    return this.dni;
+  }
+  setDNI(DNI: string){
+    this.dni = DNI;
+  }
+
+  getFollowers(): []{
+    return this.followers;
+  }
+
+  setFollowers(Followers: []){
+    this.followers = Followers;
+  }
+
+  getFollowing(): []{
+    return this.following;
+  }
+
+  setFollowing(Following: []){
+    this.followers = Following;
   }
 }

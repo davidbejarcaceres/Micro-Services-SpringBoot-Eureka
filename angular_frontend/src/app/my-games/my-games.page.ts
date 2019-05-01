@@ -20,12 +20,11 @@ export class MyGamesPage implements OnInit {
   constructor(private apiService: GamesServiceService, public activatedRoute: ActivatedRoute) {
     this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
       console.log("CARGA TAB 2");
-      
-      this.player = firstPlayer ;
-      this.name = firstPlayer.name;
-      this.lastname = firstPlayer.lastname;
-      this.age = firstPlayer.age;
-      this.games = firstPlayer.games;      
+      this.player = firstPlayer.json() ;
+      this.name = firstPlayer.json().name;
+      this.lastname = firstPlayer.json().lastname;
+      this.age = firstPlayer.json().age;
+      this.games = firstPlayer.json().games;     
       console.log(this.player);    
     }); 
    }

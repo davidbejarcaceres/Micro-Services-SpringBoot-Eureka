@@ -15,10 +15,10 @@
         <ion-card-header>
           <ion-ripple-effect></ion-ripple-effect>
           <ion-card-subtitle>Your info</ion-card-subtitle>
-          <ion-card-title>{{actual_player.firstname}} {{actual_player.lastname}}</ion-card-title>
+          <ion-card-title>{{name}} {{lastname}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-            <ion-label>age {{actual_player.age}}</ion-label>
+            <ion-label>age {{age}}</ion-label>
         </ion-card-content>
       </ion-card>
 
@@ -26,11 +26,11 @@
 
 
 
-  <ion-button expand="block"  [routerLink]="['search-add-games']" routerDirection="forward">
+  <ion-button expand="block"  [routerLink]="['search-add-games', player]" routerDirection="forward">
     Search and add Games
   </ion-button>
 
-  <ion-button  expand="block" (click)="myGames()">
+  <ion-button  expand="block"  [routerLink]="['my-games', player]" routerDirection="forward">
       My Games
   </ion-button>
 

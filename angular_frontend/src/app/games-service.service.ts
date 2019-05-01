@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
 const LOOKUP_SERVICE = 'http://localhost:5930/lookup/';
 const LOOKUP_SERVICE_URL = 'http://localhost:5930/lookup/url/';
 const CLIENT_ASIGNAR_JUEGOS = "CLIENT-ASIGNAR-JUEGOS";
@@ -80,6 +79,13 @@ export class GamesServiceService {
       console.log(url._body);
       return url._body;
     });
+  }
+
+  assignGametoPlayer(playerId: string, gameId: string){
+    //TODO: Call API to assign game to player
+    var assignGameToPlayer = this.urlAssignGamesBaseURL + "/player/" + playerId + "/game/" + gameId;
+    console.log("Juego Asignado");
+    return this.http.put(assignGameToPlayer, null);
   }
 
   getURLPivote(serviceName:string): any {     

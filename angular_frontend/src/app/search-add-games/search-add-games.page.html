@@ -16,6 +16,10 @@
         </ion-list-header>
         <ion-item button *ngFor="let game of games" (click)="addGameToPlayer(game)">
           <ion-ripple-effect></ion-ripple-effect>
+
+          <ion-avatar slot="start">
+            <img src={{game.portada}}>
+          </ion-avatar>
     
           <ion-label>
               <h2>{{game.name}}</h2>

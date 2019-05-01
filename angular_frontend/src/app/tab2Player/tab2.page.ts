@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Player } from '@angular/core/src/render3/interfaces/player';
 import { ActivatedRoute } from '@angular/router';
 import { GamesServiceService } from '../games-service.service';
+import { Game } from '../models/Game';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-tab2',
@@ -11,30 +14,30 @@ import { GamesServiceService } from '../games-service.service';
 export class Tab2Page {
 
   player: [];
-
-
-  actual_player= new PlayerObject("David", "Bejar", "24");
+  name: string;
+  lastname: string;
+  age: string;
+  games: Game[];
   
 
-  constructor(public activatedRoute: ActivatedRoute, private apiService: GamesServiceService) {
-    this.getFirstPlayer();
+  constructor(public activatedRoute: ActivatedRoute, private apiService: GamesServiceService, private router: Router) {
+    this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
+      console.log("CARGA TAB 2");
+      
+      this.player = firstPlayer ;
+      this.name = firstPlayer.name;
+      this.lastname = firstPlayer.lastname;
+      this.age = firstPlayer.age;
+      this.games = firstPlayer.games;      
+      console.log(this.player);    
+    });  
   }
-
-
   public getFirstPlayer(){
-   this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
-     this.player = firstPlayer;
-     console.log(this.player);
-     
-   })    
+ 
  }
   // List the games of the player
   myGames(){
-
-    /*TODO
-    - Crate new Page
-    - Call Get to micro-service "gestor_jugadores" to get all games
-      by this player passing the _id of t to Mongo*/
+    
   }
 
 

@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { GamesServiceService } from '../games-service.service';
 import { Game } from '../models/Game';
@@ -13,7 +14,7 @@ export class SearchAddGamesPage implements OnInit {
   player: [];
   urlServicioPlayers:string;
 
-  constructor(private gamesServiceRepo: GamesServiceService ) {
+  constructor(private gamesServiceRepo: GamesServiceService, private activaterouter: ActivatedRoute ) {
     this.gamesServiceRepo.getURLPivote("CLIENT-GESTIONAR-JUEGOS").subscribe(async url => {
       var urlFinal = url._body + "/games";
       this.urlServicioPlayers = urlFinal;
@@ -24,10 +25,11 @@ export class SearchAddGamesPage implements OnInit {
   public addGameToPlayer(game: Game){
     /*TODO: Asigns game to player by passing player ID and Game ID
     PUT http:localhost:SERVICE-PORT/APIPATH/player/{playerID}/game/{gameID}      */
-    console.log(game._id);
-    var player_id_test = "23213322323232323";
-    console.log(player_id_test);
+    console.log("game ID added: "+ game._id);
+    var player_id = this.activaterouter.snapshot.paramMap.get("_id");
+    console.log("Player ID: "+ game._id);
     
+    this.gamesServiceRepo.assignGametoPlayer(player_id, game._id);
   }
 
   public getGames(){

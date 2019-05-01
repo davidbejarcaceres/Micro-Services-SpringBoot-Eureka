@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'tabs/tab1/games', loadChildren: './games/games.module#GamesPageModule' },
   { path: 'tabs/tab1/games/game-detail', loadChildren: './game-detail/game-detail.module#GameDetailPageModule' },
   { path: 'tabs/tab2/search-add-games', loadChildren: './search-add-games/search-add-games.module#SearchAddGamesPageModule' },
-  { path: 'my-games', loadChildren: './my-games/my-games.module#MyGamesPageModule' },
+  { path: 'tabs/tab2/my-games', loadChildren: './my-games/my-games.module#MyGamesPageModule' },
 ];
 @NgModule({
   imports: [

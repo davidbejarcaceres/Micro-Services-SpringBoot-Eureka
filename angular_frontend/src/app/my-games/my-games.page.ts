@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Game } from '../models/Game';
+import { ActivatedRoute } from '@angular/router';
+import { GamesServiceService } from '../games-service.service';
 
 @Component({
   selector: 'app-my-games',
@@ -7,7 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyGamesPage implements OnInit {
 
-  constructor() { }
+  player: [];
+  name: string;
+  lastname: string;
+  age: string;
+  games: Game[];
+  
+
+  constructor(private apiService: GamesServiceService, public activatedRoute: ActivatedRoute) {
+    this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
+      console.log("CARGA TAB 2");
+      
+      this.player = firstPlayer ;
+      this.name = firstPlayer.name;
+      this.lastname = firstPlayer.lastname;
+      this.age = firstPlayer.age;
+      this.games = firstPlayer.games;      
+      console.log(this.player);    
+    }); 
+   }
 
   ngOnInit() {
   }

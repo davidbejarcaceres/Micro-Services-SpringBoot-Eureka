@@ -1,5 +1,7 @@
 {
   "name": "angular_frontend",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

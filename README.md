@@ -1,7 +1,30 @@
 # Micro-Services-SpringBoot-Eureka
 SpringBoot Micro-Services implementation and Eureka Discovery
+Main Features:
+    - Spring boot
+    - Spring Boot Data Rest
+    - Eureka Server
+    - Eureka Discovery Client
+    - Micro-services communication ussing feign
+    - Swagger2 To document the API
+    - Angular (Ionic 4) Front-end Client.
+    - Asynchronous Programming for the Angular Client.
+    - Angular Build with Web Components
+    - MongoDB as Data Layer.
+    - MongoDB DBref references between collections.
+
+
 
 To Run on Windows:
+
+DATA LAYER:
+ 1) Install MongoDB
+ https://docs.mongodb.com/compass/master/install/
+ 
+ 2) Start running MongoDB service using the MongoDB Compass, or type in the CMD:
+ $ net start MongoDB
+
+
 
 CORBA STUFF:
 1) Using the CMD:
@@ -17,7 +40,7 @@ start orbd -ORBInitialPort 1050
 
 STARTING MICRO-SERVICES:
 
-to start a micro-service, go to the root of the micro service and type:
+to start a micro-service, go to the root of the folder  of a service and type:
 $ mvn spring-boot:run
 
 1) Start Eureka_Server in "eureka_server"
@@ -32,6 +55,8 @@ $ mvn spring-boot:run
     - lookup_services (IMPORTANT, This talks to the Angular front-end to get dinamically the ports of the services)
     - corba_client (Reads all nes from corba and convert them to JSON son Angular que list in th Tab3)
     
+  If you want some info about the API you can use Swagger2: "http://localhost:PORT/swagger-ui.html"
+    
  
  STARTING ANGULAR (IONIC 4) Client:
  
@@ -44,6 +69,8 @@ $ mvn spring-boot:run
  3) To run the Angular (Ionic) just go to "angular_frontend" folder and type:
  
  $ ionic serve
+ 
+ 4) The app should detect dinamically the ports of all the micro-services and the corba client, thanks to looup-service.
  
  
  

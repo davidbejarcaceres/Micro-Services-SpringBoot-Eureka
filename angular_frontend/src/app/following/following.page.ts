@@ -13,19 +13,12 @@ export class FollowingPage implements OnInit {
   players: PlayerClass[];
   followingIdList: [];
   listPlayerObjects: PlayerClass[];
+  followersIdList: [];
+
 
   constructor(private activateRoute: ActivatedRoute,private apiService: GamesServiceService ) {
-    this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
-      this.playerSelected = <PlayerClass>firstPlayer;
-      console.log(this.playerSelected);
-      this.apiService.getFollowingById(this.playerSelected._id).subscribe(async followingPlayers => {
-        this.followingIdList = followingPlayers;
-        console.log("LISTA: ");
-        console.log(this.followingIdList);
-        this.listPlayerObjects = this.followingIdList;
-        this.apiService.presentToast("Unfollow Player: ", " Swipe right!");                            
-      });
-    });
+    this.getFollowing();
+    this.getFollowers();
    }
 
 
@@ -41,7 +34,38 @@ export class FollowingPage implements OnInit {
    }
 
    public getFollowers(){
+    this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
+      this.playerSelected = <PlayerClass>firstPlayer;
+      console.log(this.playerSelected);
+      this.apiService.getFollowersById(this.playerSelected._id).subscribe(async listFollowers => {
+        this.followersIdList = listFollowers;
+      });
+    });
+  }
 
+
+  getFollowing(){
+    this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
+      this.playerSelected = <PlayerClass>firstPlayer;
+      console.log(this.playerSelected);
+      this.apiService.getFollowingById(this.playerSelected._id).subscribe(async followingPlayers => {
+        this.followingIdList = followingPlayers;
+        console.log("LISTA: ");
+        console.log(this.followingIdList);
+        this.listPlayerObjects = this.followingIdList;
+        this.apiService.presentToast("Unfollow Player: ", " Swipe right!");                            
+      });
+    });
+  }
+
+
+
+  onClickFollower(player){
+    this.apiService.presentToast(player.name, " Is Following you!");
+  }
+
+  onClickFollwing(player){
+    this.apiService.presentToast("To unfollow "+ player.name, " Swipe right and press button");
   }
 
   ngOnInit() {

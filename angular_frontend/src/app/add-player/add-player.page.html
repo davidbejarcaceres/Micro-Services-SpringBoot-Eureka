@@ -10,7 +10,7 @@
   </ion-header>
 
 <ion-content>
-  
+  <ion-grid fixed>
     <form #Player="ngForm" (ngSubmit)="addPlayer(Player.form);">
   
     <ion-item>
@@ -36,5 +36,5 @@
     <ion-button type="submit"  expand="block">Save</ion-button>
   
   </form>
-
+</ion-grid>
 </ion-content>

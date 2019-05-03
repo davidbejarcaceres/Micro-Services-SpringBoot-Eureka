@@ -5,7 +5,7 @@
           <ion-ripple-effect type="bounded"></ion-ripple-effect>
         </ion-back-button>
       </ion-buttons>
-      <ion-title>Following</ion-title>
+      <ion-title>Following and Followers</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -17,7 +17,7 @@
           <ion-list-header>
               <ion-label>Swipe right to unfollow:</ion-label>
           </ion-list-header>
-          <ion-item-sliding button *ngFor="let player of followingIdList">
+          <ion-item-sliding button *ngFor="let player of followingIdList" (click)="onClickFollwing(player)">
               <ion-ripple-effect></ion-ripple-effect>
               <ion-item button>
                   <ion-ripple-effect></ion-ripple-effect>
@@ -38,6 +38,27 @@
                 </ion-item-options>
             </ion-item-sliding>
       </ion-list>
+
+
+
+
+      <ion-list>
+          <ion-list-header>
+              <ion-label>Your Followers:</ion-label>
+          </ion-list-header>
+          <ion-item button *ngFor="let player of followersIdList" (click)="onClickFollower(player)">
+            <ion-ripple-effect></ion-ripple-effect>
+      
+            <ion-icon slot="start" name="person"></ion-icon>
+            <ion-label>
+                <h2>{{player.name}} {{player.lastname}}</h2>
+                <p>age: {{player.age}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+
+
     </ion-grid>
 
 </ion-content>

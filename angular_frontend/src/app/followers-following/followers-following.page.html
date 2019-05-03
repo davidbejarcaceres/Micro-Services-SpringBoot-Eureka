@@ -10,6 +10,7 @@
   </ion-header>
 
   <ion-content>
+    <ion-grid fiex>
       <ion-list>
         <ion-item button *ngFor="let player of players" (click)="followPlayer(player)">
           <ion-ripple-effect></ion-ripple-effect>
@@ -20,5 +21,5 @@
     
         </ion-item>
       </ion-list>
-    
+    </ion-grid>
     </ion-content>

@@ -1,12 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Gestor
+      Manager
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid fixed>
     <ion-card class="welcome-card" [routerLink]="['games']" routerDirection="forward">
       <ion-ripple-effect></ion-ripple-effect>
       <ion-img src="/assets/shapes.svg"></ion-img>
@@ -37,4 +38,5 @@
           <p>From here you can list all players, create one, delete or update a player</p>
         </ion-card-content>
       </ion-card>
+  </ion-grid>
 </ion-content>

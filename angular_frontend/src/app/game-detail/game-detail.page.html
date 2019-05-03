@@ -10,38 +10,52 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid fixed>
+      <form #Game="ngForm" (ngSubmit)="updateGame(Game.form);">
+          <ion-card class="welcome-card" >
+              <ion-ripple-effect></ion-ripple-effect>
+              <ion-img src={{game.portada}}></ion-img>
+              <ion-card-header>
+                <ion-ripple-effect></ion-ripple-effect>
+                <ion-card-subtitle>{{game._id}}</ion-card-subtitle>
+                <ion-card-title>
+                  <!-- Inputs with labels -->
+                  <ion-item>
+                    <ion-label position="stacked">Edit title</ion-label>
+                    <ion-input name="name" ngModel #name="ngModel" placeholder={{game.name}}></ion-input>
+                  </ion-item>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <!-- Input with placeholder -->
+                <ion-item >
+                    <ion-label position="stacked">Edit description</ion-label>
+                    <ion-input name="description" ngModel #description="ngModel" placeholder={{game.description}}></ion-input>
+                </ion-item>
+      
+                <ion-item >
+                    <ion-label position="stacked">Edit portada URL</ion-label>
+                    <ion-input name="portada" ngModel #portada="ngModel" placeholder={{game.portada}}></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          
+      
+      
+            <ion-button (click)="deleteGame()" expand="block">
+                <ion-ripple-effect></ion-ripple-effect>
+                Delete Game
+              </ion-button>
+              <ion-button  type="submit" expand="block">
+                  <ion-ripple-effect></ion-ripple-effect>
+                  Save Changes
+                </ion-button>
+      
+      </form>
+ 
+  </ion-grid>
 
-    <ion-card class="welcome-card" >
-        <ion-ripple-effect></ion-ripple-effect>
-        <ion-img src={{game.portada}}></ion-img>
-        <ion-card-header>
-          <ion-ripple-effect></ion-ripple-effect>
-          <ion-card-subtitle>{{game._id}}</ion-card-subtitle>
-          <ion-card-title>
-            <!-- Inputs with labels -->
-            <ion-item>
-              <ion-label position="stacked">Edit title</ion-label>
-              <ion-input>{{game.name}}</ion-input>
-            </ion-item>
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <!-- Input with placeholder -->
-          <ion-item >
-              <ion-input id="descriptionInput" placeholder={{game.description}}>
-              </ion-input>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-
-
-      <ion-button (click)="deleteGame()" expand="block">
-          <ion-ripple-effect></ion-ripple-effect>
-          Delete Game
-        </ion-button>
-        <ion-button (click)="updateGame()" expand="block">
-            <ion-ripple-effect></ion-ripple-effect>
-            Save Changes
-          </ion-button>
+    
+    
 
 </ion-content>

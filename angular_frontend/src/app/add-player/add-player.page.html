@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs/tab1/players">
+          <ion-ripple-effect type="bounded"></ion-ripple-effect>
+        </ion-back-button>
+      </ion-buttons>
+      <ion-title>Add Player</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  
+    <form #Player="ngForm" (ngSubmit)="addPlayer(Player.form);">
+  
+    <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input name="name" required="true" type="text" class="form-control" ngModel #name="ngModel" placeholder="firstname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Lastname</ion-label>
+        <ion-input name="lastname" required="true" type="text" class="form-control" ngModel #lastname="ngModel"  placeholder="Lastname here"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Age</ion-label>
+        <ion-input name="age" required="true" type="text" inputmode="url" class="form-control" ngModel #age="ngModel" placeholder="Age"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">DNI</ion-label>
+        <ion-input name="dni" required="true" type="text" inputmode="url" class="form-control" ngModel #dni="ngModel" placeholder="0987654321"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit"  expand="block">Save</ion-button>
+  
+  </form>
+
+</ion-content>

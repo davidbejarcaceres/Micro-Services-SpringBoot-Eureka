@@ -11,29 +11,33 @@
 
 <ion-content>
 
-  <ion-button expand="block" routerDirection="forward">
-    Add Player
-  </ion-button>
-  <ion-list>
-    <ion-item button *ngFor="let player of players">
-      <ion-ripple-effect></ion-ripple-effect>
-
-      <ion-icon slot="start" name="person"></ion-icon>
-      <ion-label>
-          <h2>{{player.name}} {{player.lastname}}</h2>
-          <p>age: {{player.age}}</p>
-          <p>dni: {{player.dni}}</p>
-        <ion-list >
-            <ion-list-header>
-                <ion-label>Games:</ion-label>
-            </ion-list-header>
-            <ion-item *ngFor="let game of player.games">
-                <ion-label>{{game.name}}</ion-label>
-            </ion-item>
+  <ion-grid fixed>
+      <ion-button expand="block" [routerLink]="['add-player']" routerDirection="forward">
+          Add Player
+        </ion-button>
+        <ion-list>
+          <ion-item button *ngFor="let player of players"  [routerLink]="['player-detail', player]" routerDirection="forward">
+            <ion-ripple-effect></ion-ripple-effect>
+      
+            <ion-icon slot="start" name="person"></ion-icon>
+            <ion-label>
+                <h2>{{player.name}} {{player.lastname}}</h2>
+                <p>age: {{player.age}}</p>
+                <p>dni: {{player.dni}}</p>
+              <ion-list >
+                  <ion-list-header>
+                      <ion-label>Games:</ion-label>
+                  </ion-list-header>
+                  <ion-item *ngFor="let game of player.games">
+                      <ion-label>{{game.name}}</ion-label>
+                  </ion-item>
+              </ion-list>
+            </ion-label>
+      
+          </ion-item>
         </ion-list>
-      </ion-label>
+  </ion-grid>
 
-    </ion-item>
-  </ion-list>
+  
 
 </ion-content>

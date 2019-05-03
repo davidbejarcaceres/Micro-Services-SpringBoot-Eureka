@@ -7,21 +7,20 @@
 </ion-header>
 
 <ion-content>
-
-
-    <ion-card class="welcome-card">
+    <ion-grid fixed>
+    <ion-card class="welcome-card" >
         <ion-ripple-effect></ion-ripple-effect>
         <ion-img src="/assets/user256x256.png"></ion-img>
         <ion-card-header>
           <ion-ripple-effect></ion-ripple-effect>
           <ion-card-subtitle>Your info</ion-card-subtitle>
-          <ion-card-title>{{name}} {{lastname}}</ion-card-title>
+          <ion-card-title>{{player.name}} {{player.lastname}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-            <ion-label>age {{age}}</ion-label>
+            <ion-label>age {{player.age}}</ion-label>
         </ion-card-content>
       </ion-card>
-
+ 
 
 
 
@@ -34,7 +33,18 @@
       My Games
   </ion-button>
 
-  <ion-button  expand="block" (click)="searchPlayers()">
+  <ion-button  expand="block" [routerLink]="['followers-following', player]" routerDirection="forward">
       Search and follow players
   </ion-button>
+
+  <ion-button  expand="block" [routerLink]="['following', player]" routerDirection="forward">
+      I´m following to
+  </ion-button>
+  <ion-button  expand="block" [routerLink]="['followers', player]" routerDirection="forward">
+      My Followers
+  </ion-button>
+
+  
+  </ion-grid>
+  
 </ion-content>

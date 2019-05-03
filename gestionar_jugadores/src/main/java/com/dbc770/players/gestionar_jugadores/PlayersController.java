@@ -1,10 +1,12 @@
 package com.dbc770.players.gestionar_jugadores;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.aspectj.weaver.ast.Var;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +55,32 @@ public class PlayersController {
     return repositoryPlayers.findBy_id(id);
   }
 
+  @GetMapping(value = "/{id}/following")
+  public List<Players> getFollowingById(@PathVariable("id") ObjectId id) {
+    Players player = repositoryPlayers.findBy_id(id);
+    List<Players> following = new ArrayList<Players>();
+    if (player.getFollowing() != null) {
+      for (ObjectId followingId : player.getFollowing()) {
+        following.add(repositoryPlayers.findBy_id(followingId));
+      }
+      return following;
+    }
+    return following;
+  }
+
+  @GetMapping(value = "/{id}/followers")
+  public List<Players> getFollowersById(@PathVariable("id") ObjectId id) {
+    Players player = repositoryPlayers.findBy_id(id);
+    List<Players> followers = new ArrayList<Players>();
+    if (player.getFollowers()!= null) {
+      for (ObjectId followingId : player.getFollowers()) {
+        followers.add(repositoryPlayers.findBy_id(followingId));
+      }
+      return followers;
+    }
+    return followers;
+  }
+
   @GetMapping(value = "/name/{name}")
   public List<Players> getPlayerByName(@PathVariable("name") String name) {
     return repositoryPlayers.findByName(name);
@@ -65,8 +93,6 @@ public class PlayersController {
       return  ResponseEntity.status(200).body(repo.get(1));
     }
     return  ResponseEntity.status(204).body(null);
-    // Optional<Players> firstPlayer = repo.stream().findFirst();
-    // return ResponseEntity.status(200).body(firstPlayer);
   }
 
 
@@ -91,7 +117,7 @@ public class PlayersController {
       repositoryPlayers.save(player); // Saves Player referencing the game ID in "games" collection
       return ResponseEntity.status(201).body(player);
     } else{
-      return  ResponseEntity.status(400).body(player); //Not Created
+      return  ResponseEntity.status(400).body("DNI is not valid, please input 9 or 10 digits"); //Not Created
     }
   }
 
@@ -99,6 +125,38 @@ public class PlayersController {
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
   public void modifyPlayerById(@PathVariable("id") ObjectId id, @Valid @RequestBody Players player) {
     player.setId(id);
+    Players originalPlayer = repositoryPlayers.findBy_id(id);
+    player.setGames(originalPlayer.games);
+    player.setFollowers(originalPlayer.getFollowers());
+    player.setFollowing(originalPlayer.getFollowing());
+
+    if (player.name != null) {
+      String newName = player.name;
+      if (!newName.equals(originalPlayer.name) && newName.length() > 2) {
+        player.setName(newName);
+      }
+    }
+
+    if (player.lastname != null) {
+      String newLastname = player.lastname;
+      if (!newLastname.equals(originalPlayer.lastname) && newLastname.length() > 2) {
+        player.setName(newLastname);
+      }
+    }
+
+    if (player.age != null) {
+      String newAge = player.age;
+      if (!newAge.equals(originalPlayer.age)) {
+        player.setAge(newAge);
+      }
+    }
+
+    if (player.dni != null) {
+      String newDni = player.getDni();
+      if (!newDni.equals(originalPlayer.getDni()) &&  validateDNIClient.validateDNI(player.getDni())  ) {
+        player.setDni(newDni);
+      }
+    }
     repositoryPlayers.save(player);
   }
 
@@ -106,7 +164,6 @@ public class PlayersController {
   public void deletePlayer(@PathVariable ObjectId id) {
     repositoryPlayers.delete(repositoryPlayers.findBy_id(id));
   }
-
 
 
   //TODO: Some test API paths , delete later
@@ -129,4 +186,8 @@ public class PlayersController {
       }
       return "error al obtener comunicación";
   }
+
+  
+
+
 }

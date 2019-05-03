@@ -1,3 +1,5 @@
+import { ObjectId } from 'bson';
+import { AddGamePageModule } from './add-game/add-game.module';
 import { GamesPageModule } from './games/games.module';
 import { HttpModule } from '@angular/http';
 import { GamesServiceService } from './games-service.service';
@@ -12,11 +14,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameDetailPageModule } from './game-detail/game-detail.module';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), HttpModule,  AppRoutingModule,  GamesPageModule, GameDetailPageModule],
+  imports: [BrowserModule, FormsModule, IonicModule.forRoot(), HttpModule,  AppRoutingModule,  GamesPageModule, GameDetailPageModule],
   providers: [
     StatusBar,
     GamesServiceService,

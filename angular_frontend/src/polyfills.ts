@@ -57,6 +57,16 @@
  */
 import './zone-flags.ts';
 import 'zone.js/dist/zone';  // Included with Angular CLI.
+/** Add global to window */
+
+// BUG FIX: Add global to window, assigning the value of window itself.
+// https://github.com/socketio/socket.io-client/issues/1166#issuecomment-386195105
+(window as any).global = window;
+(window as any).global = window;
+(window as any).process = window;
+(window as any).Buffer = window;
+(window as any).process.browser = true;
+
 
 
 /***************************************************************************************************

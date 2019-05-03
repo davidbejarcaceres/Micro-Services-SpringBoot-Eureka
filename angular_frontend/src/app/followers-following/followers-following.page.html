@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs/tab2">
+          <ion-ripple-effect type="bounded"></ion-ripple-effect>
+        </ion-back-button>
+      </ion-buttons>
+      <ion-title>Click to follow a player</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+      <ion-list>
+        <ion-item button *ngFor="let player of players" (click)="followPlayer(player)">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-icon slot="start" name="person"></ion-icon>
+          <ion-label>
+              <h2>{{player.name}} {{player.lastname}}</h2>
+          </ion-label>
+    
+        </ion-item>
+      </ion-list>
+    
+    </ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs/tab1/games">
+          <ion-ripple-effect type="bounded"></ion-ripple-effect>
+        </ion-back-button>
+      </ion-buttons>
+      <ion-title>Add Game</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  
+    <form #Game="ngForm" (ngSubmit)="addGame(Game.form);">
+  
+    <ion-item>
+        <ion-label position="floating">Game Title</ion-label>
+        <ion-input name="name" required="true" type="text" class="form-control" ngModel #name="ngModel" placeholder="Title Here"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Game description</ion-label>
+        <ion-input name="description" required="true" type="text" class="form-control" ngModel #description="ngModel"  placeholder="Description Here"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Icon url</ion-label>
+        <ion-input name="portada" required="true" type="text" inputmode="url" class="form-control" ngModel #portada="ngModel" placeholder="http://www.gamesicons.com"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit"  expand="block">Save</ion-button>
+  
+  </form>
+
+</ion-content>

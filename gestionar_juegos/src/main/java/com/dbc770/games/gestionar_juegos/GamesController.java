@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -70,11 +71,17 @@ public class GamesController {
 
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public void modifyGameById(@PathVariable("id") ObjectId id, @Valid @RequestBody Games juego) {
+  public ResponseEntity<?> modifyGameById(@PathVariable("id") ObjectId id, @Valid @RequestBody Games juego) {
     if (id != null) {
         juego.setId(id);
     }
-    repository.save(juego);
+    // Searches for the game if exist in DB
+    if(repository.findBy_id(id) !=null){
+      repository.save(juego);
+      return  ResponseEntity.ok().body(juego);
+    } else{
+      return  ResponseEntity.status(204).body("Element not found, nothing was updated");
+    }
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

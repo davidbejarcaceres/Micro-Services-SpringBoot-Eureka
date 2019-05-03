@@ -1,0 +1,33 @@
+<ion-header fixed>
+    <ion-toolbar fixed>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs/tab2">
+          <ion-ripple-effect type="bounded"></ion-ripple-effect>
+        </ion-back-button>
+      </ion-buttons>
+      <ion-title>Followers</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  
+  <ion-content>
+    <ion-grid fixed>
+      
+
+
+        <ion-list>
+            <ion-item button *ngFor="let player of followersIdList">
+              <ion-ripple-effect></ion-ripple-effect>
+        
+              <ion-icon slot="start" name="person"></ion-icon>
+              <ion-label>
+                  <h2>{{player.name}} {{player.lastname}}</h2>
+                  <p>age: {{player.age}}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+
+
+    </ion-grid>
+</ion-content>

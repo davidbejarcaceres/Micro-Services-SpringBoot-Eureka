@@ -21,33 +21,36 @@ public class FollowerAssignerController {
   @Autowired
   private PlayersRepository repositoryPlayers;
 
+  //Assigns follower to player, checks if the follwing is not added yet before and nulls errors
   @PutMapping(value = "/player/{id}/follower/{id_to_follow}")
   public ResponseEntity<Players> asignFollowerToPlayerByID(@PathVariable("id") ObjectId id, @PathVariable("id_to_follow") ObjectId id_to_follow ) {
-
     Players player = new Players();
     if (repositoryPlayers.existsById(id.toString())) {
       player = repositoryPlayers.findBy_id(id);
       if (player._id != id_to_follow && repositoryPlayers.existsById(id_to_follow.toString())) {
           if (player.getFollowing() != null) {
-            player.following.add(id_to_follow);
-            repositoryPlayers.save(player);
-            addfollowerToFollowing(id_to_follow, player._id);
-            return ResponseEntity.status(200).body(player);
+            if (!player.getFollowing().contains(id_to_follow)) {
+              player.following.add(id_to_follow);
+              repositoryPlayers.save(player);
+              addfollowerToFollowing(id_to_follow, player._id);
+              return ResponseEntity.status(200).body(null);
+            }
           } else {
             player.following = new ArrayList<ObjectId>();
             player.following.add(id_to_follow);
             addfollowerToFollowing(id_to_follow, player._id);       
           }
       } else{
-        return ResponseEntity.ok().body(player);
+        return ResponseEntity.ok().body(null);
       }
       repositoryPlayers.save(player);
     } else{
       return ResponseEntity.status(404).body(null);
     }
-    return ResponseEntity.ok().body(player);
+    return ResponseEntity.ok().body(null);
   }
 
+  //Unfollow player to some who follows, checks if the follwing is not added yet before and nulls errors
   @DeleteMapping(value = "/player/{id}/follower/{id_to_follow}")
   public ResponseEntity<Players> deleteFollowerFromPlayerByID(@PathVariable("id") ObjectId id, @PathVariable("id_to_follow") ObjectId id_to_follow ) {
     Players player = new Players();
@@ -58,10 +61,10 @@ public class FollowerAssignerController {
             player.following.remove(id_to_follow);
             repositoryPlayers.save(player);
             deletefollowerToFollowing(id_to_follow, player._id);
-            return ResponseEntity.status(200).body(player);
+            return ResponseEntity.status(200).body(null);
           }
       } else{
-        return ResponseEntity.ok().body(player);
+        return ResponseEntity.ok().body(null);
       }
       repositoryPlayers.save(player);
     } else{
@@ -76,8 +79,10 @@ public class FollowerAssignerController {
       if (repositoryPlayers.existsById(id_actual.toString())) {
         Players actualPlayer = repositoryPlayers.findBy_id(id_actual);
         if (actualPlayer.getFollowers() != null) {
-          actualPlayer.followers.add(id_follower);
-          repositoryPlayers.save(actualPlayer);
+          if (!actualPlayer.getFollowers().contains(id_follower)) {
+            actualPlayer.followers.add(id_follower);
+            repositoryPlayers.save(actualPlayer);
+          }
         } else{
           actualPlayer.followers = new ArrayList<ObjectId>();
           actualPlayer.followers.add(id_follower);

@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 describe('AppComponent', () => {
 

@@ -7,7 +7,7 @@ Main Features:
     - Spring Boot Data Rest
     - Eureka Server
     - Eureka Discovery Client
-    - Micro-services communication ussing feign
+    - Micro-services communication using feign
     - Swagger2 To document the API
     - Angular (Ionic 4) Front-end Client.
     - Asynchronous Programming for the Angular Client.

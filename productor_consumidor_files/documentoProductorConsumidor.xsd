@@ -1,0 +1,38 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="documentoProductorConsumidor" type="tipoDocumentoProductorConsumidor" />
+	<xs:complexType name="tipoDocumentoProductorConsumidor">
+		<xs:sequence>
+			<xs:element name="news" type="newsElement" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="newsElement">
+		<xs:sequence>
+			<xs:element name="date">
+				<xs:simpleType>
+				  <xs:restriction base="xs:string">
+					<xs:pattern value="(3[01]|[12][0-9]|0[1-9])(\/)(((0)[1-9])|((1)[0-2]))(\/)\d{4}"/>
+					<xs:length value="10"/>
+				  </xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			 <xs:element name="short_description">
+				<xs:simpleType>
+				  <xs:restriction base="xs:string">
+					<xs:whiteSpace value="collapse"/>
+					<xs:minLength value="5"/>
+					<xs:maxLength value="30"/>
+				  </xs:restriction>
+				</xs:simpleType>
+			  </xs:element>
+			  <xs:element name="long_description">
+				<xs:simpleType>
+				  <xs:restriction base="xs:string">
+					<xs:whiteSpace value="collapse"/>
+					<xs:minLength value="20"/>
+					<xs:maxLength value="500"/>
+				  </xs:restriction>
+				</xs:simpleType>
+			  </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

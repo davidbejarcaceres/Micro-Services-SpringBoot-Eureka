@@ -1,30 +1,33 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      News from the CORBA server
+      Corba News
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid fixed>
-
-      <ion-list>
-          <ion-list-header>
-              <ion-label>News:</ion-label>
-          </ion-list-header>
-          <ion-item button >
-            <ion-ripple-effect></ion-ripple-effect>
-      
-            <ion-icon slot="start" name="paper"></ion-icon>
-            <ion-label>
-                <h2>Title</h2>
-                <p>date</p>
-            </ion-label>
+        <ion-list>
+            <ion-list-header>
+                <ion-label>News:</ion-label>
+            </ion-list-header>
+          <ion-item button  *ngFor="let new of news">
+              <ion-card class="welcome-card">
+                  <ion-ripple-effect></ion-ripple-effect>
+                  <ion-card-header>
+                    <ion-ripple-effect></ion-ripple-effect>
+                    <ion-card-subtitle>{{new.date}}</ion-card-subtitle>
+                    <ion-card-title>{{new.short_description}}</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-ripple-effect></ion-ripple-effect>
+                    <ion-icon slot="start" name="paper"></ion-icon>
+                    {{new.long_description}}
+                  </ion-card-content>
+                </ion-card>
           </ion-item>
         </ion-list>
-
-
   </ion-grid>
   
 </ion-content>

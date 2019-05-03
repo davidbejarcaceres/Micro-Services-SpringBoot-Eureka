@@ -9,10 +9,7 @@ import { GamesServiceService } from '../games-service.service';
 })
 export class PlayerDetailPage implements OnInit {
 
-
   player: PlayerClass;
-
-
 
   constructor(private apiService: GamesServiceService,private activatedRoute : ActivatedRoute ) {
     this.activatedRoute.params.subscribe(param => {
@@ -24,7 +21,6 @@ export class PlayerDetailPage implements OnInit {
       })       
     });
    }
-
 
    updatePlayer(form){
     //TODO: Delete a lo tof log for console
@@ -53,7 +49,7 @@ export class PlayerDetailPage implements OnInit {
       var newAge = <string>form.value.age;
       console.log("Comparing: " + newAge + " with: " + this.player.age);
       if (newAge !== this.player.age && newAge.length > 2) {
-        console.log("Cambia Portada");
+        console.log("Changes Age");
         newPlayer.setAge(newAge)
         console.log(newPlayer.getAge());
       }
@@ -62,26 +58,18 @@ export class PlayerDetailPage implements OnInit {
     if (form.value.dni != null) {
       var newDni = <string>form.value.dni;
       if (newDni !== this.player.dni && newDni.length > 7) {
-        console.log("Cambia Portada");
+        console.log("Changes DNI");
         newPlayer.setDNI(newDni)
         console.log(newPlayer.getDNI());
       }
     }
-
-    console.log("JUGADOR FINAL EDITADO:");
-
-    alert(newPlayer.toString());
     form.reset();
     this.apiService.updatePlayer(newPlayer);
   }
 
   ngOnInit() {
   }
-
 }
-
-
-
 
 class PlayerClass {
 

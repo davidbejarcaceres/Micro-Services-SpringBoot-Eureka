@@ -14,6 +14,7 @@ const CLIENT_GESTIONAR_JUEGOS = "CLIENT-GESTIONAR-JUEGOS";
 const CLIENT_ASIGNAR_SEGUIDORES = "CLIENT-ASIGNAR-SEGUIDORES";
 const CLIENT_GESTIONAR_JUGADORES = "CLIENT-GESTIONAR-JUGADORES";
 const CLIENT_VERIFICAR_DATOS= "CLIENT-VERIFICAR-DATOS";
+const CLIENT_CORBA_NEWS= "CLIENT-CORBA-NEWS";
 const MICRO_SERVICIOS_NAMES = <string[]>[CLIENT_ASIGNAR_JUEGOS, CLIENT_GESTIONAR_JUEGOS, CLIENT_ASIGNAR_SEGUIDORES, CLIENT_GESTIONAR_JUGADORES];
 
 
@@ -25,6 +26,7 @@ export class GamesServiceService {
   urlPlayersBaseURL: string;
   urlAssignGamesBaseURL: string;
   urlAssignFollowersBaseURL: string;
+  urlCorbaNews: string;
 
   
 
@@ -54,6 +56,12 @@ export class GamesServiceService {
       console.log("Asignar-Seguidores:  " +this.urlAssignFollowersBaseURL);
     });
 
+    this.getURLPivote(CLIENT_CORBA_NEWS).subscribe(async url => {
+      var urlFinal = url._body + "/corba/news";
+      this.urlCorbaNews = urlFinal;
+      console.log("Corba-News:  " +this.urlCorbaNews);
+    });
+
     //TODO: Delete later if don´t needed, this fetches all the info from a servie not just the URI
     // this.getServiceInfo().subscribe(async (res: Response) =>{
     //   console.log("HTTP Code: " + res.status);
@@ -75,10 +83,28 @@ export class GamesServiceService {
       var action = "Games arrived";
       this.presentToast(res.status.toString(), action );
       return <Game[]>res.json();
-    } 
+      }, error => {
+                    this.presentToast("Error: ", "Check Game Service  running" );
+                    console.log(error.text());
+                    }
     
     ));
   }
+
+  public getNews(): Observable<[]> { 
+    return this.http.get(this.urlCorbaNews).pipe(map((res: Response) => {
+      console.log("HTTP Code: " + res.status);
+      var action = "Got News From Server";
+      this.presentToast(res.status.toString(), action);
+      return <[]>res.json();
+    },  error => {
+                this.presentToast("Error: ", "Check Corba Server running" );
+                console.log(error.text());
+      }
+    
+    ));
+  }
+
 
   public getPlayers(): Observable<[]> { 
     return this.http.get(this.urlPlayersBaseURL).pipe(map((res: Response) => {
@@ -283,8 +309,7 @@ export class GamesServiceService {
           response => {
                         console.log("Game Deleted " + response.status);
                         var action = "Game deleted";
-                        this.presentToast(response.status.toString(), action );                           
-                        console.log(response.json());
+                        this.presentToast(response.status.toString(), action );                                                   
                       },
          error => {
                         alert(error.text());

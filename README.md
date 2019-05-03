@@ -66,7 +66,7 @@ $ mvn spring-boot:run
     - gestionar_jugadores
     - verificar_datos
     - lookup_services (IMPORTANT, This talks to the Angular front-end to get dinamically the ports of the services)
-    - corba_client (Reads all nes from corba and convert them to JSON son Angular que list in th Tab3)
+    - corba_client (Reads all news from corba and convert them to JSON son Angular que list in th Tab3)
     
   If you want some info about the API you can use Swagger2: "http://localhost:PORT/swagger-ui.html"
     

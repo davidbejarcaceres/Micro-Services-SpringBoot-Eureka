@@ -39,7 +39,8 @@ DATA LAYER:
 
 CORBA STUFF:
 1) Using the CMD:
-start orbd -ORBInitialPort 1050
+
+$ start orbd -ORBInitialPort 1050
 
 2) Copy folder "productor_consumidor_files" to the root of your user path: "C:\Users\david\productor_consumidor_files"
 
@@ -52,6 +53,7 @@ start orbd -ORBInitialPort 1050
 STARTING MICRO-SERVICES:
 
 to start a micro-service, go to the root of the folder  of a service and type:
+
 $ mvn spring-boot:run
 
 1) Start Eureka_Server in "eureka_server"
@@ -75,11 +77,11 @@ $ mvn spring-boot:run
  
  2) Install the Ionic 4 CLI, if fails run on admin mode:
  
- $ npm install -g ionic
+    $ npm install -g ionic
  
  3) To run the Angular (Ionic) just go to "angular_frontend" folder and type:
  
- $ ionic serve
+    $ionic serve
  
  4) The app should detect dinamically the ports of all the micro-services and the corba client, thanks to looup-service.
  

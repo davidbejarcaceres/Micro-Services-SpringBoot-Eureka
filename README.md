@@ -2,6 +2,7 @@
 SpringBoot Micro-Services implementation and Eureka Discovery
 
 Main Features:
+
     - Spring boot
     - Spring Boot Data Rest
     - Eureka Server
@@ -13,7 +14,6 @@ Main Features:
     - Angular Build with Web Components
     - MongoDB as Data Layer.
     - MongoDB DBref references between collections.
-
 
 
 To Run on Windows:

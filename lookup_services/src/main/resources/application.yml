@@ -15,7 +15,8 @@ info:
         description: Searches for all micro services so the front end asks for the ports and locations
         version: 1.0
         Development State: Ready
-        Main Features: Eureka Discovery Client
-        Inicio API: http://localhost:5930/lookup/{service-name}
+        Main Features: Eureka Discovery Client, Swagger2 to dcument the API
+        Startin API: http://localhost:5930/lookup/{service-name}
+        Swagger: http://localhost:5930/swagger-ui.html
         Example: http://localhost:5930/lookup/CLIENT-ASIGNAR-JUEGOS
         TODO: Nothing

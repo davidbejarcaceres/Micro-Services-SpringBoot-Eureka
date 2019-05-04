@@ -12,11 +12,12 @@ eureka:
 info:
     app:
         name: Asignador de seguidores a jugadores (Follower => Players)
-        description: Asigns a Follower (Needs an ObjectId) to a Player (ObjectID) in the database micro_services
-        version: 1.0
+        description: Asigns a Follower (Needs an ObjectId) to a Player (ObjectID) in the database micro_services, and un-Follows too
+        version: 2.0
         Development State: Working perfectly
         Main Features: Spring Boot Data rest, MongoDB, Swagger to document and explore the API
         Inicio API: http://localhost:${PORT:${SERVER_PORT:0}}/
         Example: POST http://localhost:${SERVER_PORT:0}/player/{player_id}/follower/{follower_id}
+        Example Unfollow: DELETE http://localhost:${SERVER_PORT:0}/player/{player_id}/follower/{follower_id}
         Swagger: http://localhost:${SERVER_PORT:0}/swagger-ui.html
         TODO: Nothing

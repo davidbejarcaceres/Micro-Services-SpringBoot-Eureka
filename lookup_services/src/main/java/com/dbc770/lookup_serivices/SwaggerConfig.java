@@ -18,20 +18,20 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {                                    
     @Bean
     public Docket api() { 
-        return new Docket(DocumentationType.SWAGGER_2)  
-          .select()                                  
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())  
+          .select()                                            
           .apis(RequestHandlerSelectors.any())              
-          .paths(PathSelectors.ant("/**"))                                    
+          .paths(PathSelectors.ant("/lookup/**"))                                    
           .build();                                           
     }
 
     private ApiInfo apiInfo(){
         return new ApiInfo
         ("Lookup for all micro-services",
-        "Fixed port service to find micro-services locations for the front-end",
+        "Fixed port (Port 5930) service to find micro-services locations for the front-end",
         "1", "termsOfServiceUrl",
         new Contact(
-            "David Bejar Cacers",
+            "David Bejar Caceres",
             "Web Page", 
             "dbc770@inlumine.ual.es"),
         "license",

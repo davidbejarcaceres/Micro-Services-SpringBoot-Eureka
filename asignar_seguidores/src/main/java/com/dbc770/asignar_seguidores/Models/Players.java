@@ -1,4 +1,4 @@
-package com.dbc770.asignar_seguidores;
+package com.dbc770.asignar_seguidores.Models;
 
 import java.util.List;
 
@@ -22,10 +22,7 @@ public class Players {
     public List<Games> games;
 
     public List<ObjectId> followers;
-
     public List<ObjectId> following;
-
-
 
     // Constructors
     public Players() {}
@@ -107,9 +104,6 @@ public class Players {
     public void setFollowing(List<ObjectId> following) {
         this.following = following;
     }
-
-
-
 
     @Override
     public String toString() {

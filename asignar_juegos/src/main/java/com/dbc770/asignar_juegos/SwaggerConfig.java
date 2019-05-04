@@ -1,10 +1,8 @@
 package com.dbc770.asignar_juegos;
 
 import java.util.Collections;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -18,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {                                    
     @Bean
     public Docket api() { 
-        return new Docket(DocumentationType.SWAGGER_2)  
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())  
           .select()                                  
           .apis(RequestHandlerSelectors.any())              
           .paths(PathSelectors.ant("/**"))                                    
@@ -31,7 +29,7 @@ public class SwaggerConfig {
         "Add a Game Document from the games collection to a Player in players collection Micro-Service using MongoDB",
         "1", "termsOfServiceUrl",
         new Contact(
-            "David Bejar Cacers",
+            "David Bejar Caceres",
             "Web Page", 
             "dbc770@inlumine.ual.es"),
         "license",

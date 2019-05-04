@@ -24,35 +24,18 @@ export class Tab2Page {
   
 
   constructor(public activatedRoute: ActivatedRoute, private apiService: GamesServiceService, private router: Router) {
-    console.log("CARGA TAB 2");  
-    this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
-      this.player = <PlayerClass>firstPlayer;
-    });  
+    console.log("TAB 2 LOADED CONSTRUCTOR  ");  
   }
   public getFirstPlayer(){
  
  }
   // List the games of the player
   myGames(){
-    
   }
 
-
-  searchPlayers(){
-    /*TODO
-    - Crate new Page
-    - Call Get to micro-service "gestor_jugadores" to get all players
-      by this player passing the _id of t to Mongo
-    - Add a "Click to add player" functionality calling "asignar_jugadores" micro-service*/
-    
-
+  ngOnInit() {
+    this.apiService.getFirstPlayer().subscribe(async firstPlayer => {
+      this.player = <PlayerClass>firstPlayer;
+    }); 
   }
-
-  searchGames(){
-    /*TODO
-    - Crate new Page
-    - Call Get to micro-service "gestor_juegos" to get all games
-    - Add a "Click to add game" functionality calling "asignar_juegos" micro-service*/
-  }
-
 }

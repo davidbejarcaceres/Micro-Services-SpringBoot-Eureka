@@ -18,7 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {                                    
     @Bean
     public Docket api() { 
-        return new Docket(DocumentationType.SWAGGER_2)  
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())  
           .select()                                  
           .apis(RequestHandlerSelectors.any())              
           .paths(PathSelectors.ant("/**"))                                    

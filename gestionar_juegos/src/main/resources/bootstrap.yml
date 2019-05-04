@@ -1,8 +1,4 @@
 spring:
-  # mvc:
-  #   servlet:
-  #     path: 
-  #Local MongoDB config
   data:
     mongodb:
       database: micro_services_followers

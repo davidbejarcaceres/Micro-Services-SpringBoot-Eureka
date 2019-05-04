@@ -7,6 +7,11 @@ import { map, retry, timeInterval, timeout, delay, take, retryWhen } from 'rxjs/
 import { ToastController } from '@ionic/angular';
 import { lookup } from 'dns';
 
+/**
+ * @author David Bejar Caceres
+ * 2019 dbc770@inlumine.ual.es
+ */
+
 const LOOKUP_SERVICE = 'http://localhost:5930/lookup/';
 const LOOKUP_SERVICE_URL = 'http://localhost:5930/lookup/url/';
 const CLIENT_ASIGNAR_JUEGOS = "CLIENT-ASIGNAR-JUEGOS";

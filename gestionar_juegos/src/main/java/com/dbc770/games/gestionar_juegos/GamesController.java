@@ -1,9 +1,8 @@
 package com.dbc770.games.gestionar_juegos;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
+import com.dbc770.games.gestionar_juegos.Models.Games;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+/**
+ * @author David Bejar Caceres
+ * 2019 dbc770@inlumine.ual.es
+ */
 
 @RestController
 @CrossOrigin(origins = "*") //CORS security, Allows coneccting to the API from external paths.
@@ -35,11 +37,6 @@ public class GamesController {
 
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public @ResponseBody  List<Games> getAllBarra() {
-    return repository.findAll();
-  }
-
-  @RequestMapping(value = "/todos", method = RequestMethod.GET)
-  public @ResponseBody  List<Games> getAllTodo() {
     return repository.findAll();
   }
 
@@ -60,13 +57,13 @@ public class GamesController {
 
   @ApiOperation("Creates a new Game")
   @ApiResponses({
-    @ApiResponse(code=200, message = "OK" , response = Games.class)
+    @ApiResponse(code=201, message = "Created" , response = Games.class)
   })
   @RequestMapping(value = "", method = RequestMethod.POST)
-  public Games createPet(@Valid @RequestBody Games game) {
+  public ResponseEntity<?> createPet(@Valid @RequestBody Games game) {
     game.setId(ObjectId.get());
     repository.save(game);
-    return game;
+    return ResponseEntity.status(201).body(game);
   }
 
 
@@ -76,7 +73,7 @@ public class GamesController {
         juego.setId(id);
     }
     // Searches for the game if exist in DB
-    if(repository.findBy_id(id) !=null){
+    if(repository.existsById(id.toHexString())){
       repository.save(juego);
       return  ResponseEntity.ok().body(juego);
     } else{
@@ -85,8 +82,12 @@ public class GamesController {
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-  public void deleteGame(@PathVariable ObjectId id) {
-    repository.delete(repository.findBy_id(id));
+  public ResponseEntity<?> deleteGame(@PathVariable ObjectId id) {
+    if(repository.existsById(id.toHexString())){
+      repository.delete(repository.findBy_id(id));
+      return  ResponseEntity.ok().body(null);
+    } else {
+      return  ResponseEntity.status(204).body(null);
+    }
   }
-
 }

@@ -12,16 +12,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Lookup for micro-services urls so Angular can communicate with them
+ * @author David Bejar Caceres
+ */
+
 @EnableDiscoveryClient
 @SpringBootApplication
 public class DemoApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-
 }
-
 
 @RestController
 class ServiceInstanceRestController {

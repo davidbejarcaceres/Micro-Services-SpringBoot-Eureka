@@ -1,7 +1,7 @@
 package com.dbc770.games.gestionar_juegos;
 
 import java.util.List;
-
+import com.dbc770.games.gestionar_juegos.Models.Games;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

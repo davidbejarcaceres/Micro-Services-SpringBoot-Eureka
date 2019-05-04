@@ -10,8 +10,4 @@ public interface ValidateDNIClient {
 
     @GetMapping("/validator/dni/{dni}")
     public boolean validateDNI(@PathVariable("dni") String dni);  
-
-    //TODO: Delete later
-    @GetMapping("/validator/{nombre}")
-    public String sayHiMethod(@PathVariable("nombre") String nombre);   
 }

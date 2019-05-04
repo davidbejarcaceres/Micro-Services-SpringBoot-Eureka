@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author David Bejar Caceres
+ * 2019 dbc770@inlumine.ual.es
+ */
 
 @CrossOrigin(origins = "*") //CORS security, Allows connecting to the API from external paths.
 @RestController
@@ -32,14 +36,5 @@ public class GameAssignerController {
     }
     repositoryPlayers.save(player);
     return player;
-  }
-
-  //TODO: Delete later
-  @GetMapping(value="/hi/{name}")
-  public String sayHi(@PathVariable("name") String name){
-    if (name!= null) {
-      return ("Hi  "+ name + "  from the asignar-juegos micro-service");
-    }
-    return ("Hi  from the asignar-juegos micro-service");
   }
 }

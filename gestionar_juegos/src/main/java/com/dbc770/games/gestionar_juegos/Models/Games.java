@@ -1,4 +1,4 @@
-package com.dbc770.games.gestionar_juegos;
+package com.dbc770.games.gestionar_juegos.Models;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -21,9 +21,6 @@ public class Games {
         this.description = description;
         this.portada = portada;
     }
-
-
-
 
     public String get_id() { return _id.toHexString(); }
 
@@ -55,7 +52,6 @@ public class Games {
         this.portada = portada;
     }
 
-
     @Override
     public String toString() {
         return "{" +
@@ -65,13 +61,4 @@ public class Games {
             ", portada='" + getPortada() + "'" +
             "}";
     }
-    
-
-    // @Override
-    // public String toString() {
-    //     return String.format(
-    //             "Customer[id=%s, firstName='%s', lastName='%s']",
-    //             id, firstName, lastName);
-    // }
-
 }

@@ -49,6 +49,8 @@ export class FollowingPage implements OnInit {
       this.playerSelected = <PlayerClass>firstPlayer;
       console.log(this.playerSelected);
       this.apiService.getFollowingById(this.playerSelected._id).subscribe(async followingPlayers => {
+        console.log("LIST FROM THE SERVICE");
+        console.log(followingPlayers);
         this.followingIdList = followingPlayers;
         console.log("LISTA: ");
         console.log(this.followingIdList);

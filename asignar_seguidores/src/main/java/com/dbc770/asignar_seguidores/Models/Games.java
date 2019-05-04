@@ -1,4 +1,4 @@
-package com.dbc770.asignar_seguidores;
+package com.dbc770.asignar_seguidores.Models;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

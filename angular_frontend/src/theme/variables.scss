@@ -74,16 +74,27 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+  --ion-grid-width-lg: 80%;
+  --ion-grid-width-xl: 50%;
+  --ion-grid-columns: 12;
+  --ion-tab-bar-background: rgb(240, 240, 240);
+  --ion-toolbar-background: #2b87ff;
+  --ion-toolbar-color: #ffffff;
+
+  
 
     $grid-breakpoints: (
     xs: 0, // Phone (0px - 575px)
     sm: 576px, // Phablet (576px - 767px)
     md: 768px, // Tablet vertical (768px - 991px)
-    lg: 750px, // Tablet horizontal, Desktop (992px and above)
-    xl: 800px // Tablet horizontal, Desktop (992px and above)
+    lg: 992px, // Tablet horizontal, Desktop (992px and above)
+    xl: 1200px // Tablet horizontal, Desktop (800px and above)
     );
 
     $grid-max-widths: (
-    xl: 800px
+    xl: 1200px
     );
+
+    
+
 }

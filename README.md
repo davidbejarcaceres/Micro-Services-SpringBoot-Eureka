@@ -23,13 +23,15 @@ DATA LAYER:
  https://docs.mongodb.com/compass/master/install/
  
  2) Start running MongoDB service using the MongoDB Compass, or type in the CMD:
- $ net start MongoDB
+     
+     $ net start MongoDB
 
 
 
 CORBA STUFF:
 1) Using the CMD:
-start orbd -ORBInitialPort 1050
+
+    $ start orbd -ORBInitialPort 1050
 
 2) Copy folder "productor_consumidor_files" to the root of your user path: "C:\Users\david\productor_consumidor_files"
 
@@ -42,12 +44,14 @@ start orbd -ORBInitialPort 1050
 STARTING MICRO-SERVICES:
 
 to start a micro-service, go to the root of the folder  of a service and type:
-$ mvn spring-boot:run
+
+    $ mvn spring-boot:run
 
 1) Start Eureka_Server in "eureka_server"
 
 
 2) Start all of the other services:
+
     - asignar_juegos
     - asignar_seguidores
     - gestionar_juegos
@@ -56,7 +60,9 @@ $ mvn spring-boot:run
     - lookup_services (IMPORTANT, This talks to the Angular front-end to get dinamically the ports of the services)
     - corba_client (Reads all nes from corba and convert them to JSON son Angular que list in th Tab3)
     
-  If you want some info about the API you can use Swagger2: "http://localhost:PORT/swagger-ui.html"
+  If you want some info about the API you can use Swagger2:
+  
+    "http://localhost:PORT/swagger-ui.html"
     
  
  STARTING ANGULAR (IONIC 4) Client:
@@ -65,11 +71,11 @@ $ mvn spring-boot:run
  
  2) Install the Ionic 4 CLI, if fails run on admin mode:
  
- $ npm install -g ionic
+    $ npm install -g ionic
  
  3) To run the Angular (Ionic) just go to "angular_frontend" folder and type:
  
- $ ionic serve
+    $ ionic serve
  
  4) The app should detect dinamically the ports of all the micro-services and the corba client, thanks to looup-service.
  

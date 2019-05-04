@@ -12,10 +12,10 @@ eureka:
 info:
     app:
         name: Gestor de Jugadores
-        description: In Charge of Players, CRUD operations on top of MongoDB with Feign capabilities
-        version: 3.0
-        Development State: Works perfect! ready to connect woth front-end
-        Main Features: Spring Boot Data rest, MongoDB, Feign, Swagger to document and explore the API
+        description: In Charge of Players, CRUD operations on top of MongoDB with Feign capabilities.
+        version: 4.0
+        Development State: Works perfect! ready to connect with front-end
+        Main Features: Spring Boot Data rest, MongoDB, Feign, Swagger2 to document and explore the API
         Inicio API: http://localhost:${PORT:${SERVER_PORT:0}}/players
         Swagger: http://localhost:${SERVER_PORT:0}/swagger-ui.html
-        TODO: Clean Code
+        TODO: Nothing

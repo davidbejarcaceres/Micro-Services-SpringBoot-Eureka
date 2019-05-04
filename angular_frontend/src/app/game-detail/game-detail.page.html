@@ -5,57 +5,58 @@
           <ion-ripple-effect type="bounded"></ion-ripple-effect>
         </ion-back-button>
       </ion-buttons>
-    <ion-title>Game Detail</ion-title>
+    <ion-title>Edit game</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid fixed>
       <form #Game="ngForm" (ngSubmit)="updateGame(Game.form);">
-          <ion-card class="welcome-card" >
-              <ion-ripple-effect></ion-ripple-effect>
-              <ion-img src={{game.portada}}></ion-img>
-              <ion-card-header>
-                <ion-ripple-effect></ion-ripple-effect>
-                <ion-card-subtitle>{{game._id}}</ion-card-subtitle>
-                <ion-card-title>
-                  <!-- Inputs with labels -->
-                  <ion-item>
-                    <ion-label position="stacked">Edit title</ion-label>
-                    <ion-input name="name" ngModel #name="ngModel" placeholder={{game.name}}></ion-input>
-                  </ion-item>
-                </ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                <!-- Input with placeholder -->
-                <ion-item >
-                    <ion-label position="stacked">Edit description</ion-label>
-                    <ion-input name="description" ngModel #description="ngModel" placeholder={{game.description}}></ion-input>
-                </ion-item>
-      
-                <ion-item >
-                    <ion-label position="stacked">Edit portada URL</ion-label>
-                    <ion-input name="portada" ngModel #portada="ngModel" placeholder={{game.portada}}></ion-input>
-                </ion-item>
-              </ion-card-content>
-            </ion-card>
-          
-      
-      
-            <ion-button (click)="deleteGame()" expand="block">
-                <ion-ripple-effect></ion-ripple-effect>
-                Delete Game
-              </ion-button>
-              <ion-button  type="submit" expand="block">
+        <ion-row class="ion-justify-content-center">
+          <ion-col size-lg="8" size-xl="8" size-md="6" size-sm="9" size-xs="12">
+                  <ion-card class="welcome-card" >
+                      <ion-ripple-effect></ion-ripple-effect>
+                      <ion-img src={{game.portada}}></ion-img>
+                      <ion-card-header>
+                        <ion-ripple-effect></ion-ripple-effect>
+                        <ion-card-subtitle>{{game._id}}</ion-card-subtitle>
+                        <ion-card-title>
+                          <!-- Inputs with labels -->
+                          <ion-item>
+                            <ion-label position="stacked">Edit title</ion-label>
+                            <ion-input name="name" ngModel #name="ngModel" placeholder={{game.name}}></ion-input>
+                          </ion-item>
+                        </ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <!-- Input with placeholder -->
+                        <ion-item >
+                            <ion-label position="stacked">Edit description</ion-label>
+                            <ion-input name="description" ngModel #description="ngModel" placeholder={{game.description}}></ion-input>
+                        </ion-item>
+              
+                        <ion-item >
+                            <ion-label position="stacked">Edit portada URL</ion-label>
+                            <ion-input name="portada" ngModel #portada="ngModel" placeholder={{game.portada}}></ion-input>
+                        </ion-item>
+                      </ion-card-content>
+                    </ion-card>
+          </ion-col>
+
+
+          <ion-col size-lg="4" size-xl="4" size-md="4" size-sm="9" size-xs="12">
+
+              <ion-button (click)="deleteGame()" expand="block">
                   <ion-ripple-effect></ion-ripple-effect>
-                  Save Changes
+                  Delete Game
                 </ion-button>
-      
-      </form>
- 
+                <ion-button  type="submit" expand="block">
+                    <ion-ripple-effect></ion-ripple-effect>
+                    Save Changes
+                  </ion-button>
+          </ion-col>
+        
+      </ion-row>
+    </form>
   </ion-grid>
-
-    
-    
-
 </ion-content>

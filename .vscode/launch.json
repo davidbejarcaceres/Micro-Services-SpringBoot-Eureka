@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - BufferServer",
+            "request": "launch",
+            "mainClass": "server.BufferServer"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-DemoApplication<eureka_server>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
@@ -68,6 +74,16 @@
             "console": "internalConsole",
             "mainClass": "com.dbc770.lookup_serivices.DemoApplication",
             "projectName": "lookup_services",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<corba-news>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.dbc770.corba_client.DemoApplication",
+            "projectName": "corba-news",
             "args": ""
         }
     ]

@@ -1,6 +1,5 @@
 package com.dbc770.lookup_serivices;
 
-import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,8 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @EnableDiscoveryClient
@@ -31,13 +30,15 @@ class ServiceInstanceRestController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @RequestMapping("/lookup/{applicationName}")
+    // Lookup for all the info of a service, port, host, description, and many more metadata
+    @GetMapping("/lookup/{applicationName}")
     public List<ServiceInstance> serviceInstancesByApplicationName(
             @PathVariable String applicationName) {
         return this.discoveryClient.getInstances(applicationName);
     }
     
-    @RequestMapping("/lookup/url/{applicationName}")
+    // Only the URI of the micro-service, this is used by the Angular front-end
+    @GetMapping("/lookup/url/{applicationName}")
     public String serviceURL(@PathVariable String applicationName) {
         if (this.discoveryClient.getInstances(applicationName) != null && !this.discoveryClient.getInstances(applicationName).isEmpty()) {
             List<ServiceInstance> ListaServicios = this.discoveryClient.getInstances(applicationName);

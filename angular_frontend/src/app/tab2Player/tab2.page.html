@@ -8,37 +8,43 @@
 
 <ion-content>
     <ion-grid fixed>
-    <ion-card class="welcome-card" >
-        <ion-ripple-effect></ion-ripple-effect>
-        <ion-img src="/assets/user256x256.png"></ion-img>
-        <ion-card-header>
-          <ion-ripple-effect></ion-ripple-effect>
-          <ion-card-subtitle>Your info</ion-card-subtitle>
-          <ion-card-title>{{player.name}} {{player.lastname}}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            <ion-label>age {{player.age}}</ion-label>
-        </ion-card-content>
-      </ion-card>
- 
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-lg="6" size-xl="6" size-md="6" size-sm="9" size-xs="12">
+            <ion-card>
+                <ion-ripple-effect></ion-ripple-effect>
+                <ion-img src="/assets/user256x256.png"></ion-img>
+                <ion-card-header>
+                  <ion-ripple-effect></ion-ripple-effect>
+                  <ion-card-subtitle>Your info</ion-card-subtitle>
+                  <ion-card-title *ngIf="player">{{player.name}} {{player.lastname}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-label *ngIf="player">age {{player.age}}</ion-label>
+                </ion-card-content>
+              </ion-card>
+         
+        
+        </ion-col>
 
+        <ion-col size-lg="6" size-xl="6" size-md="6" size-sm="9" size-xs="12">
+            <ion-button expand="block"  [routerLink]="['search-add-games', player]" routerDirection="forward">
+                Search and add Games
+              </ion-button>
+            
+              <ion-button  expand="block"  [routerLink]="['my-games', player]" routerDirection="forward">
+                  My Games
+              </ion-button>
+            
+              <ion-button  expand="block" [routerLink]="['followers-following', player]" routerDirection="forward">
+                  Search and follow players
+              </ion-button>
+            
+              <ion-button  expand="block" [routerLink]="['following', player]" routerDirection="forward">
+                  Following and Followers
+              </ion-button>
+        </ion-col>
+        
+      </ion-row>
 
-
-
-  <ion-button expand="block"  [routerLink]="['search-add-games', player]" routerDirection="forward">
-    Search and add Games
-  </ion-button>
-
-  <ion-button  expand="block"  [routerLink]="['my-games', player]" routerDirection="forward">
-      My Games
-  </ion-button>
-
-  <ion-button  expand="block" [routerLink]="['followers-following', player]" routerDirection="forward">
-      Search and follow players
-  </ion-button>
-
-  <ion-button  expand="block" [routerLink]="['following', player]" routerDirection="forward">
-      Following and Followers
-  </ion-button>
   </ion-grid>
 </ion-content>

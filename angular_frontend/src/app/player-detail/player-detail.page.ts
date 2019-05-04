@@ -47,8 +47,7 @@ export class PlayerDetailPage implements OnInit {
 
     if (form.value.age != null || form.value.age) {
       var newAge = <string>form.value.age;
-      console.log("Comparing: " + newAge + " with: " + this.player.age);
-      if (newAge !== this.player.age && newAge.length > 2) {
+      if (newAge !== this.player.age) {
         console.log("Changes Age");
         newPlayer.setAge(newAge)
         console.log(newPlayer.getAge());

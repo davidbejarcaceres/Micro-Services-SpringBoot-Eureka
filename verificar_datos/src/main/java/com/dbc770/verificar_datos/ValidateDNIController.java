@@ -15,11 +15,13 @@ public class ValidateDNIController {
   @GetMapping("/dni/{dni}")
   public boolean validateDNI(@PathVariable("dni") String dni){
     if (dni != null) {
-      /*TODO: Disabled for debugging reasons, only checking length 
+      /*TODO: Disabled for debugging reasons, only checking length (9 for Spanish DNI, and 10 por my passport)
       Ask the professor eather to change this later or not to enable strict validator*/
       //if(ValidadorDNI.validar(dni)){ 
       if(dni.length() == 9 || dni.length() == 10){ // accepts Spanish or Ecuadorean number of digits
         return true;
+      } else {
+        return false;
       }
     }
     return false;
@@ -36,11 +38,4 @@ public class ValidateDNIController {
     }
     return false;
   }
-
-
-  //TODO: Delete later
-  @GetMapping("/{nombre}")
-  public String sayHiMethod(@PathVariable("nombre") String nombre){
-    return ("Hola " + nombre + " desde micro con Metodo sin HTTP");
-  } 
 }

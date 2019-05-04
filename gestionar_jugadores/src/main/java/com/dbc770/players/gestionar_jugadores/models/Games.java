@@ -1,4 +1,4 @@
-package com.dbc770.players.gestionar_jugadores;
+package com.dbc770.players.gestionar_jugadores.models;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

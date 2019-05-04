@@ -8,35 +8,42 @@
 
 <ion-content>
   <ion-grid fixed>
-    <ion-card class="welcome-card" [routerLink]="['games']" routerDirection="forward">
-      <ion-ripple-effect></ion-ripple-effect>
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-ripple-effect></ion-ripple-effect>
-        <ion-card-subtitle></ion-card-subtitle>
-        <ion-card-title>Manage Games</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-ripple-effect></ion-ripple-effect>
 
-        <p>From here you can list all games, create one, delete or update a game</p>
-      </ion-card-content>
-    </ion-card>
-
-
-    <ion-card class="welcome-card" [routerLink]="['players']" routerDirection="forward">
-        <ion-ripple-effect></ion-ripple-effect>
-        <ion-img src="/assets/shapes.svg"></ion-img>
-        <ion-card-header>
-          <ion-ripple-effect></ion-ripple-effect>
-          <ion-card-subtitle></ion-card-subtitle>
-          <ion-card-title>Manage Players</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-ripple-effect></ion-ripple-effect>
+    <ion-row class="ion-justify-content-center">
+        <ion-col size-lg="6" size-xl="6" size-md="6" size-sm="9" size-xs="12">
+            <ion-card class="welcome-card" [routerLink]="['games']" routerDirection="forward">
+                <ion-ripple-effect></ion-ripple-effect>
+                <ion-img src="/assets/shapes.svg"></ion-img>
+                <ion-card-header>
+                  <ion-ripple-effect></ion-ripple-effect>
+                  <ion-card-subtitle></ion-card-subtitle>
+                  <ion-card-title>Manage Games</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-ripple-effect></ion-ripple-effect>
           
-          <p>From here you can list all players, create one, delete or update a player</p>
-        </ion-card-content>
-      </ion-card>
+                  <p>From here you can list all games, create one, delete or update a game</p>
+                </ion-card-content>
+              </ion-card>
+        </ion-col>
+
+        <ion-col size-lg="6" size-xl="6" size-md="6" size-sm="9" size-xs="12">
+            <ion-card class="welcome-card" [routerLink]="['players']" routerDirection="forward">
+                <ion-ripple-effect></ion-ripple-effect>
+                <ion-img src="/assets/shapes.svg"></ion-img>
+                <ion-card-header>
+                  <ion-ripple-effect></ion-ripple-effect>
+                  <ion-card-subtitle></ion-card-subtitle>
+                  <ion-card-title>Manage Players</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-ripple-effect></ion-ripple-effect>
+                  
+                  <p>From here you can list all players, create one, delete or update a player</p>
+                </ion-card-content>
+              </ion-card>
+        </ion-col>
+    </ion-row>
+    
   </ion-grid>
 </ion-content>

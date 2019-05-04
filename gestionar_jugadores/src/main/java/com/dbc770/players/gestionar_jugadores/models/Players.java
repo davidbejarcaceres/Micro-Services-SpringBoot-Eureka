@@ -1,7 +1,6 @@
-package com.dbc770.players.gestionar_jugadores;
+package com.dbc770.players.gestionar_jugadores.models;
 
 import java.util.List;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;

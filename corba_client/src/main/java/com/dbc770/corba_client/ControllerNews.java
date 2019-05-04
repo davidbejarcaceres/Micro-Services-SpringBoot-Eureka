@@ -1,27 +1,20 @@
 package com.dbc770.corba_client;
 
-import com.dbc770.BufferApp.BufferHelper;
-import com.dbc770.BufferApp.Buffer;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.dbc770.BufferApp.Buffer;
+import com.dbc770.BufferApp.BufferHelper;
 
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.StringHolder;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
-import org.springframework.boot.actuate.trace.http.HttpTrace.Response;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-
-
-
 
 
 
@@ -44,16 +37,15 @@ public class ControllerNews {
 	private Validador validador;
 	private String nombre_archivo;
 	private String ruta_archivo;
-    private Boolean firstRead;
+  private Boolean firstRead;
 
-    //TODO: Delete later
     @GetMapping("/news")
     public List<Mensaje> readNews(){
-      connecstCorba();
+      connectsCorba();
       return readAll();
     }
 
-  private void connecstCorba() {
+  private void connectsCorba() {
 
     try{
       this.orb = ORB.init(args, null);

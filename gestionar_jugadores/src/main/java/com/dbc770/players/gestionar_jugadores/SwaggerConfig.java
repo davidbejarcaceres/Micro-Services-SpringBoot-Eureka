@@ -4,7 +4,6 @@ import java.util.Collections;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -18,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {                                    
     @Bean
     public Docket api() { 
-        return new Docket(DocumentationType.SWAGGER_2)  
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())  
           .select()                                  
           .apis(RequestHandlerSelectors.any())              
           .paths(PathSelectors.ant("/players/**"))                                    
@@ -28,10 +27,10 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
         return new ApiInfo
         ("Players API",
-        "Players Micro-Service using MongoDB",
+        "Players Micro-Service, in Charge of players, CRUD operations on top of MongoDB with Feign capabilities.",
         "1", "termsOfServiceUrl",
         new Contact(
-            "David Bejar Cacers",
+            "David Bejar Caceres",
             "Web Page", 
             "dbc770@inlumine.ual.es"),
         "license",

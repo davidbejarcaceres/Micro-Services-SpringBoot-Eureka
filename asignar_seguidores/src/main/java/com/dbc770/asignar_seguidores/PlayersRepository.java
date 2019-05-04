@@ -1,7 +1,6 @@
 package com.dbc770.asignar_seguidores;
 
-import java.util.List;
-
+import com.dbc770.asignar_seguidores.Models.Players;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

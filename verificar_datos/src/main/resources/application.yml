@@ -11,12 +11,12 @@ eureka:
 
 info:
     app:
-        name: Validates DNI from players communicating with feign
-        description: Validates the data using the DNI of the Player and replies with a boolean
+        name: Validates Spanish DNI from players communicating with feign (also 10 digits passports)
+        description: Validates Spanish DNI 9 digits number, by default desactivated for Development purposes., by default also accepts 10 digits numbers
         version: 1.0
         Development State: Ready
-        Main Features: Spring Boot Data rest, MongoDB, Swagger to document and explore the API
-        Inicio API: http://localhost:${PORT:${SERVER_PORT:0}}/
-        Example: POST http://localhost:${SERVER_PORT:0}/player/{player_id}/game/{game_id}
-        Swagger: http://localhost:${SERVER_PORT:0}/swagger-ui.html
-        TODO: investigate about DNI formats
+        Main Features: Spring Boot, Feign, Swagger2 to document the api
+        Inicio API: http://localhost:${PORT:${SERVER_PORT:0}}/validator
+        Example: POST http://localhost:${PORT:${SERVER_PORT:0}}/validator/dni/{dni}
+        Swagger: http://localhost:${PORT:${SERVER_PORT:0}}/swagger-ui.html
+        TODO: If wanted, activate the strict validation so detects only Spanish 9 digit number more accurate.

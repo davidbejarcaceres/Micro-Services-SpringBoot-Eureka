@@ -7,7 +7,7 @@ Main Features:
     - Spring Boot Data Rest
     - Eureka Server
     - Eureka Discovery Client
-    - Micro-services communication ussing feign
+    - Micro-services communication using feign
     - Swagger2 To document the API
     - Angular (Ionic 4) Front-end Client.
     - Asynchronous Programming for the Angular Client.
@@ -21,9 +21,9 @@ To Run on Windows:
 DATA LAYER:
  1) Install MongoDB
  https://docs.mongodb.com/compass/master/install/
- 
+
  2) Start running MongoDB service using the MongoDB Compass, or type in the CMD:
-     
+
      $ net start MongoDB
 
 
@@ -38,6 +38,8 @@ CORBA STUFF:
 3) Start the Corba Buffer service in "ServidorComponenteCORBA\src\server\BufferServer.java" (Run as Java Application)
 
 4) If you want to act like manager to read and write news, run "Productor-Consumidor\src\client\Servlet.java" on Tomcat. There you can access the servlet to add news to the corba server, later you can read them from the Angular Client.
+
+PD: SOMETIMES TOMCAT FROM PRODUCTO-CONSUMIDR CAUSES CONFLICTS WITH corba_client SERVICE, TO SOLVE THIS, JUST ADD ALL THE NEWS TO CORBA BUFFER AND TURN-OFF THE TOMCAT SERVER, WORK ONLY WITH THE CORBA BUFFER.
 
 
 
@@ -58,29 +60,27 @@ to start a micro-service, go to the root of the folder  of a service and type:
     - gestionar_jugadores
     - verificar_datos
     - lookup_services (IMPORTANT, This talks to the Angular front-end to get dinamically the ports of the services)
-    - corba_client (Reads all nes from corba and convert them to JSON son Angular que list in th Tab3)
-    
-  If you want some info about the API you can use Swagger2:
-  
-    "http://localhost:PORT/swagger-ui.html"
-    
- 
- STARTING ANGULAR (IONIC 4) Client:
- 
- 1) Make sure you have NodeJs 10 LTS https://nodejs.org/en/ (with npm)
- 
- 2) Install the Ionic 4 CLI, if fails run on admin mode:
- 
-    $ npm install -g ionic
- 
- 3) To run the Angular (Ionic) just go to "angular_frontend" folder and type:
- 
-    $ ionic serve
- 
- 4) The app should detect dinamically the ports of all the micro-services and the corba client, thanks to looup-service.
- 
- 
- 
- That´s it :D
-    
+    - corba_client (Reads all news from corba and convert them to JSON so Angular lists them in Tab3)
 
+  If you want some info about the API you can use Swagger2:
+
+    "http://localhost:PORT/swagger-ui.html"
+
+
+ STARTING ANGULAR (IONIC 4) CLIENT:
+
+ 1) Make sure you have NodeJs 10 LTS https://nodejs.org/en/ (with npm)
+
+ 2) Install the Ionic 4 CLI, if fails run on admin mode:
+
+    $ npm install -g ionic
+
+ 3) To run the Angular (Ionic) just go to "angular_frontend" folder and type:
+
+    $ ionic serve
+
+ 4) The app should detect dinamically the ports of all the micro-services and the corba client, thanks to looup-service.
+
+
+
+ That´s it :D

@@ -3,17 +3,18 @@ SpringBoot Micro-Services implementation and Eureka Discovery
 
 Main Features:
 
-    - Spring boot
-    - Spring Boot Data Rest
-    - Eureka Server
-    - Eureka Discovery Client
-    - Micro-services communication using feign
-    - Swagger2 To document the API
-    - Angular (Ionic 4) Front-end Client.
-    - Asynchronous Programming for the Angular Client.
-    - Angular Build with Web Components
-    - MongoDB as Data Layer.
-    - MongoDB DBref references between collections.
+  - Spring boot
+  - Spring Boot Data Rest
+  - Eureka Server
+  - Eureka Discovery Client
+  - Micro-services communication using feign
+  - Swagger2 To document the API
+  - Angular (Ionic 4) Front-end Client.
+  - Asynchronous Programming for the Angular Client.
+  - Angular using Web Components.
+  - Angular Multi-resoultion 
+  - MongoDB as Data Layer.
+  - MongoDB DBref references between collections.
 
 
 To Run on Windows:
@@ -24,14 +25,14 @@ DATA LAYER:
 
  2) Start running MongoDB service using the MongoDB Compass, or type in the CMD:
 
-     $ net start MongoDB
+  ``` $ net start MongoDB ```
 
 
 
 CORBA STUFF:
 1) Using the CMD:
 
-    $ start orbd -ORBInitialPort 1050
+  ```  $ start orbd -ORBInitialPort 1050  ```
 
 2) Copy folder "productor_consumidor_files" to the root of your user path: "C:\Users\david\productor_consumidor_files"
 
@@ -47,7 +48,7 @@ STARTING MICRO-SERVICES:
 
 to start a micro-service, go to the root of the folder  of a service and type:
 
-    $ mvn spring-boot:run
+  ```  $ mvn spring-boot:run  ```
 
 1) Start Eureka_Server in "eureka_server"
 
@@ -73,11 +74,11 @@ to start a micro-service, go to the root of the folder  of a service and type:
 
  2) Install the Ionic 4 CLI, if fails run on admin mode:
 
-    $ npm install -g ionic
+  ```  $ npm install -g ionic  ```
 
  3) To run the Angular (Ionic) just go to "angular_frontend" folder and type:
 
-    $ ionic serve
+  ```  $ ionic serve  ```
 
  4) The app should detect dinamically the ports of all the micro-services and the corba client, thanks to looup-service.
 

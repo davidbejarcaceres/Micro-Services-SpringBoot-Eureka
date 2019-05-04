@@ -12,7 +12,7 @@ Main Features:
   - Angular (Ionic 4) Front-end Client.
   - Asynchronous Programming for the Angular Client.
   - Angular using Web Components.
-  - Angular Multi-resoultion 
+  - Angular responsive grid design, perfect for PWA and Android.
   - MongoDB as Data Layer.
   - MongoDB DBref references between collections.
 
@@ -46,7 +46,7 @@ PD: SOMETIMES TOMCAT FROM PRODUCTO-CONSUMIDR CAUSES CONFLICTS WITH corba_client 
 
 STARTING MICRO-SERVICES:
 
-to start a micro-service, go to the root of the folder  of a service and type:
+to start a micro-service, go to the root of the folder  of a service and type (or use your IDE):
 
   ```  $ mvn spring-boot:run  ```
 

@@ -54,13 +54,13 @@ to start a micro-service, go to the root of the folder  of a service and type:
 
 2) Start all of the other services:
 
-    - asignar_juegos
-    - asignar_seguidores
-    - gestionar_juegos
-    - gestionar_jugadores
-    - verificar_datos
-    - lookup_services (IMPORTANT, This talks to the Angular front-end to get dinamically the ports of the services)
-    - corba_client (Reads all news from corba and convert them to JSON so Angular lists them in Tab3)
+  - asignar_juegos
+  - asignar_seguidores
+  - gestionar_juegos
+  - gestionar_jugadores
+  - verificar_datos
+  - lookup_services (IMPORTANT, This talks to the Angular front-end to get dinamically the ports of the services)
+  - corba_client (Reads all news from corba and convert them to JSON so Angular lists them in Tab3)
 
   If you want some info about the API you can use Swagger2:
 

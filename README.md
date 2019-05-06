@@ -26,6 +26,14 @@ DATA LAYER:
  2) Start running MongoDB service using the MongoDB Compass, or type in the CMD:
 
   ``` $ net start MongoDB ```
+  
+ 3) Restore the Database I added to the proyect, so you don´t start from an empty database:
+ 
+    - Copy the "dump" folder to "C:\Program Files\MongoDB\Server\4.0\bin" (Mongodb bin directory)
+
+    - To load the database, in the same bin folder , just open the CMD and type:
+
+    ``` $ mongorestore --db micro_services_followers ```
 
 
 

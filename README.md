@@ -33,7 +33,7 @@ DATA LAYER:
 
     - To load the database, in the same bin folder , just open the CMD and type:
 
-    - mongorestore --db micro_services_followers
+    ``` $ mongorestore --db micro_services_followers ```
 
 
 

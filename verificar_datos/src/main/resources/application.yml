@@ -19,4 +19,4 @@ info:
         Inicio API: http://localhost:${PORT:${SERVER_PORT:0}}/validator
         Example: POST http://localhost:${PORT:${SERVER_PORT:0}}/validator/dni/{dni}
         Swagger: http://localhost:${PORT:${SERVER_PORT:0}}/swagger-ui.html
-        TODO: If wanted, activate the strict validation so detects only Spanish 9 digit number more accurate.
+        TODO: Checks 9 Digits Spanish DNI, but also allows 10 digits Passport because I don´t have DNI

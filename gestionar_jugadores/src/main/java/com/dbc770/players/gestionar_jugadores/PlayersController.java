@@ -27,7 +27,6 @@ import io.swagger.annotations.ApiResponses;
  * 2019 dbc770@inlumine.ual.es
  */
 
-
 @CrossOrigin(origins = "*") //CORS security, Allows coneccting to the API from external paths.
 @RestController
 @RequestMapping("/players")
@@ -142,7 +141,7 @@ public class PlayersController {
   @ApiResponses({
     @ApiResponse(code=201, message = "OK" , response = Players.class)}) 
   @PostMapping(value = "", produces = "application/json")
-  public ResponseEntity<?> createPlayer(@RequestBody Players player) {
+  public ResponseEntity<?> createPlayer(@Valid @RequestBody Players player) {
     if (player._id == null) {
       player.setId(ObjectId.get());
     }

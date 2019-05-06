@@ -11,7 +11,7 @@ eureka:
 
 info:
     app:
-        name: Asignador de seguidores a jugadores (Follower => Players)
+        name: Follows and Un-Follows players
         description: Asigns a Follower (Needs an ObjectId) to a Player (ObjectID) in the database micro_services, and un-Follows too
         version: 2.0
         Development State: Working perfectly

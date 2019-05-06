@@ -17,8 +17,7 @@ public class ValidateDNIController {
     if (dni != null) {
       /*TODO: Disabled for debugging reasons, only checking length (9 for Spanish DNI, and 10 por my passport)
       Ask the professor eather to change this later or not to enable strict validator*/
-      //if(ValidadorDNI.validar(dni)){ 
-      if(dni.length() == 9 || dni.length() == 10){ // accepts Spanish or Ecuadorean number of digits
+      if(ValidadorDNI.validar(dni) || dni.length() == 10){ 
         return true;
       } else {
         return false;

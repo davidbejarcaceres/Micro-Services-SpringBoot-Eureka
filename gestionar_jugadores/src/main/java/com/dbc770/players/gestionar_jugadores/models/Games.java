@@ -14,7 +14,7 @@ public class Games {
     public String description;
     public String portada;
 
-    // Constructors
+    // Constructors Getters and Setters omitted
     public Games() {}
 
     public Games(ObjectId _id, String name, String description, String portada) {

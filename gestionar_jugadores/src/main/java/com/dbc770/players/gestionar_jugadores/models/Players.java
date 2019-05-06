@@ -21,14 +21,10 @@ public class Players {
     public List<Games> games;
 
     public List<ObjectId> followers;
-
     public List<ObjectId> following;
 
-
-
-    // Constructors
+    // Constructors Getters and Setters omitted
     public Players() {}
-
 
     public Players(ObjectId _id, String name, String lastname, String age, String dni, List<Games> games, List<ObjectId> followers, List<ObjectId> following) {
         this._id = _id;

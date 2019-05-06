@@ -23,7 +23,6 @@ export class PlayerDetailPage implements OnInit {
    }
 
    updatePlayer(form){
-    //TODO: Delete a lo tof log for console
     var newPlayer = new PlayerClass(this.player._id, this.player.name, this.player.lastname, this.player.age, this.player.dni, this.player.games, this.player.followers, this.player.following) 
     console.log(form.value);
     
@@ -64,6 +63,10 @@ export class PlayerDetailPage implements OnInit {
     }
     form.reset();
     this.apiService.updatePlayer(newPlayer);
+  }
+
+  deletePlayer(){
+    this.apiService.deletePlayer(this.player._id);    
   }
 
   ngOnInit() {

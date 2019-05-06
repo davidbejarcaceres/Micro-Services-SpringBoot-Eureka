@@ -322,6 +322,27 @@ export class GamesServiceService {
         });
   }
 
+
+  deletePlayer(plyerId: string){
+    var deletePlayerurl = this.urlPlayersBaseURL + "/" + plyerId;
+    console.log(deletePlayerurl);
+    let body = 1; 
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    this.http.delete(deletePlayerurl, plyerId)
+    .subscribe( 
+          response => {
+                        console.log("Player Deleted " + response.status);
+                        var action = "Player deleted";
+                        this.presentToast(response.status.toString(), action );                                                   
+                      },
+         error => {
+                        alert(error.text());
+                        console.log(error.text());
+        });
+  }
+
   public getServiceURL(serviceName: string): any{
     return this.http.get(LOOKUP_SERVICE_URL + serviceName).pipe(map(
       ServiceUrl => <string>ServiceUrl.json()));

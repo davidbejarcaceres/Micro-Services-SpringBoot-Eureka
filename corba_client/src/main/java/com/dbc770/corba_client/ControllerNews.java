@@ -11,6 +11,7 @@ import org.omg.CORBA.ORB;
 import org.omg.CORBA.StringHolder;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,9 +41,14 @@ public class ControllerNews {
   private Boolean firstRead;
 
     @GetMapping("/news")
-    public List<Mensaje> readNews(){
+    public ResponseEntity<?> readNews(){
       connectsCorba();
-      return readAll();
+      List<Mensaje> news = this.readAll();
+      if (news != null && !news.isEmpty()) {
+        return ResponseEntity.ok().body(news);
+      } else {
+        return ResponseEntity.status(204).body(null);
+      }
     }
 
   private void connectsCorba() {

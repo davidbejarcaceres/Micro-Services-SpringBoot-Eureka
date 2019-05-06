@@ -86,19 +86,19 @@ public class ControllerNews {
           Pair<Boolean, ArrayList<Mensaje>> nuevo = new Pair<Boolean, ArrayList<Mensaje>>(desempaquetador.desempaquetar());
           mensajes = nuevo.second();
           if(nuevo.first()){
-            System.out.println("El buffer contiene  " +nuevo.second().size()+ " elementos.");
+            System.out.println("The buffer has  " +nuevo.second().size()+ " news.");
             for (Mensaje mensaje : nuevo.second()) {
               System.out.println(mensaje.toString());
             }
             return mensajes;
           }else{
-            System.out.println("[ERROR]: Los mensajes no se han desempaquetado correctamente.");
+            System.out.println("[ERROR]: The messages have not been properly unpacked.");
           }
         }else{
-          System.out.println("[ERROR]: Los mensajes no se han desempaquetado correctamente.");
+          System.out.println("[ERROR]: The messages have not been properly unpacked.");
         }
       }else{
-        System.out.println("[ERROR]: Elementos no leidos [Buffer vacio].");
+        System.out.println("[ERROR]: Unread elements [Empty buffer].");
         return mensajes;
       } return mensajes;
     }

@@ -46,6 +46,6 @@ class ServiceInstanceRestController {
             String url = primerServicioDisponible.getUri().toString();
             return url;
         }
-        return null; // No Service
+        return "NO SERVICE"; // No Service
 	}
 }

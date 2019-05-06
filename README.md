@@ -44,6 +44,8 @@ PD: SOMETIMES TOMCAT FROM PRODUCTO-CONSUMIDR CAUSES CONFLICTS WITH corba_client 
 
 
 
+
+
 STARTING MICRO-SERVICES:
 
 to start a micro-service, go to the root of the folder  of a service and type (or use your IDE):
@@ -66,6 +68,8 @@ to start a micro-service, go to the root of the folder  of a service and type (o
   If you want some info about the API you can use Swagger2:
 
     "http://localhost:PORT/swagger-ui.html"
+
+
 
 
  STARTING ANGULAR (IONIC 4) CLIENT:

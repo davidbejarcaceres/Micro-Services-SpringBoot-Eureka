@@ -35,31 +35,31 @@ public class GamesController {
     return repository.findAll();
   }
 
-  @RequestMapping(value = "/", method = RequestMethod.GET)
+  @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
   public @ResponseBody  List<Games> getAllBarra() {
     return repository.findAll();
   }
 
-  @ApiOperation("Find games by Id")
+  @ApiOperation(value = "Find games by Id", response = Games.class)
   @ApiResponses({
     @ApiResponse(code=200, message = "OK" , response = Games.class)
   })
-  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+  @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
   public Games getGameById(@PathVariable("id") ObjectId id) {
     return repository.findBy_id(id);
   }
 
-  @RequestMapping(value = "/name/{name}", method = RequestMethod.GET)
+  @RequestMapping(value = "/name/{name}", method = RequestMethod.GET, produces = "application/json")
   public List<Games> getGameByName(@PathVariable("name") String name) {
     return repository.findByName(name);
   }
 
 
-  @ApiOperation("Creates a new Game")
+  @ApiOperation(value = "Creates a new Game", response = Games.class)
   @ApiResponses({
     @ApiResponse(code=201, message = "Created" , response = Games.class)
   })
-  @RequestMapping(value = "", method = RequestMethod.POST)
+  @RequestMapping(value = "", method = RequestMethod.POST, produces = "application/json")
   public ResponseEntity<?> createPet(@Valid @RequestBody Games game) {
     game.setId(ObjectId.get());
     repository.save(game);
@@ -67,7 +67,7 @@ public class GamesController {
   }
 
 
-  @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+  @RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = "application/json")
   public ResponseEntity<?> modifyGameById(@PathVariable("id") ObjectId id, @Valid @RequestBody Games juego) {
     if (id != null) {
         juego.setId(id);

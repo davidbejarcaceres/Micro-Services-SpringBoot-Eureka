@@ -85,6 +85,15 @@
             "mainClass": "com.dbc770.corba_client.DemoApplication",
             "projectName": "corba-news",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MavenWrapperDownloader",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "MavenWrapperDownloader",
+            "args": ""
         }
     ]
 }

@@ -18,9 +18,7 @@ const CLIENT_ASIGNAR_JUEGOS = "CLIENT-ASIGNAR-JUEGOS";
 const CLIENT_GESTIONAR_JUEGOS = "CLIENT-GESTIONAR-JUEGOS";
 const CLIENT_ASIGNAR_SEGUIDORES = "CLIENT-ASIGNAR-SEGUIDORES";
 const CLIENT_GESTIONAR_JUGADORES = "CLIENT-GESTIONAR-JUGADORES";
-const CLIENT_VERIFICAR_DATOS= "CLIENT-VERIFICAR-DATOS";
 const CLIENT_CORBA_NEWS= "CLIENT-CORBA-NEWS";
-const MICRO_SERVICIOS_NAMES = <string[]>[CLIENT_ASIGNAR_JUEGOS, CLIENT_GESTIONAR_JUEGOS, CLIENT_ASIGNAR_SEGUIDORES, CLIENT_GESTIONAR_JUGADORES];
 
 
 @Injectable({
@@ -32,8 +30,6 @@ export class GamesServiceService {
   urlAssignGamesBaseURL: string;
   urlAssignFollowersBaseURL: string;
   urlCorbaNews: string;
-
-  
 
 
   public constructor(private http: Http, private toastController: ToastController) {
@@ -83,7 +79,6 @@ export class GamesServiceService {
 
   getGames(){
     return this.http.get(this.urlGamesBaseURL).pipe(map((res: Response) => {
-      console.log("JUEGOS OBTENIDOS");
       console.log("HTTP Code: "+ res.status);
       var action = "Games arrived";
       this.presentToast(res.status.toString(), action );
@@ -167,8 +162,8 @@ export class GamesServiceService {
     this.http.post(this.urlPlayersBaseURL, player, options)
     .subscribe( 
           response => {
-                        console.log("Player Saved " + response.status);  
-                        var action = "Player saved";
+                        console.log("Player Added " + response.status);  
+                        var action = "Player Added";
                         this.presentToast(response.status.toString(), action );                         
                         console.log(response.json());
                       },

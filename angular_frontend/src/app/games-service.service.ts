@@ -352,7 +352,6 @@ export class GamesServiceService {
     });
   }
 
-
   async presentToast(code: string, action: string) {
     const toast = await this.toastController.create({
       message: (code + "  -  " + action),

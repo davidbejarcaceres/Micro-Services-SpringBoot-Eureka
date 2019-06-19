@@ -65,6 +65,8 @@ to start a micro-service, go to the root of the folder  of a service and type (o
 
 2) Start all of the other services:
 
+  ```  $ start start.bat  ```
+
   - asignar_juegos
   - asignar_seguidores
   - gestionar_juegos

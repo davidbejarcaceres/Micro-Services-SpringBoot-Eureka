@@ -48,7 +48,7 @@ CORBA STUFF:
 
 4) If you want to act like manager to read and write news, run "Productor-Consumidor\src\client\Servlet.java" on Tomcat. There you can access the servlet to add news to the corba server, later you can read them from the Angular Client.
 
-PD: SOMETIMES TOMCAT FROM PRODUCTO-CONSUMIDR CAUSES CONFLICTS WITH corba_client SERVICE, TO SOLVE THIS, JUST ADD ALL THE NEWS TO CORBA BUFFER AND TURN-OFF THE TOMCAT SERVER, WORK ONLY WITH THE CORBA BUFFER.
+PD: SOMETIMES TOMCAT FROM PRODUCTO-CONSUMIDR CAUSES CONFLICTS WITH corba_client SERVICE, TO SOLVE THIS, JUST ADD ALL THE NEWS TO CORBA BUFFER AND TURN-OFF THE TOMCAT SERVER, WORKS ONLY WITH THE CORBA BUFFER.
 
 
 
@@ -91,6 +91,13 @@ to start a micro-service, go to the root of the folder  of a service and type (o
  3) To run the Angular (Ionic) just go to "angular_frontend" folder and type:
 
   ```  $ ionic serve  ```
+
+  Or build the project with the Angular CLI for production and navigate to folder www to start angular-http-server on port 8080 by default:
+
+  ``` $ ng build --prod --buildOptimizer=true --aot=true --optimization=true ```
+  ``` $ cd www ```
+  ``` $ angular-http-server ```
+
 
  4) The app should detect dinamically the ports of all the micro-services and the corba client, thanks to looup-service.
 

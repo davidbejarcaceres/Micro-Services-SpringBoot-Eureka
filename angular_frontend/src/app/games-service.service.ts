@@ -14,11 +14,11 @@ import { lookup } from 'dns';
 
 const LOOKUP_SERVICE = 'http://localhost:5930/lookup/';
 const LOOKUP_SERVICE_URL = 'http://localhost:5930/lookup/url/';
-const CLIENT_ASIGNAR_JUEGOS = "CLIENT-ASIGNAR-JUEGOS";
-const CLIENT_GESTIONAR_JUEGOS = "CLIENT-GESTIONAR-JUEGOS";
-const CLIENT_ASIGNAR_SEGUIDORES = "CLIENT-ASIGNAR-SEGUIDORES";
-const CLIENT_GESTIONAR_JUGADORES = "CLIENT-GESTIONAR-JUGADORES";
-const CLIENT_CORBA_NEWS= "CLIENT-CORBA-NEWS";
+const CLIENT_ASIGNAR_JUEGOS = 'CLIENT-ASIGNAR-JUEGOS';
+const CLIENT_GESTIONAR_JUEGOS = 'CLIENT-GESTIONAR-JUEGOS';
+const CLIENT_ASIGNAR_SEGUIDORES = 'CLIENT-ASIGNAR-SEGUIDORES';
+const CLIENT_GESTIONAR_JUGADORES = 'CLIENT-GESTIONAR-JUGADORES';
+const CLIENT_CORBA_NEWS= 'CLIENT-CORBA-NEWS';
 
 
 @Injectable({
@@ -34,33 +34,33 @@ export class GamesServiceService {
 
   public constructor(private http: Http, private toastController: ToastController) {
     this.getURLPivote(CLIENT_GESTIONAR_JUEGOS).subscribe(async url => {
-      var urlFinal = url._body + "/games";
+      const urlFinal = url._body + '/games';
       this.urlGamesBaseURL = urlFinal;
-      console.log("Gestor-juegos:  " +this.urlGamesBaseURL);
+      console.log('Gestor-juegos:  ' +this.urlGamesBaseURL);
     });
 
     this.getURLPivote(CLIENT_GESTIONAR_JUGADORES).subscribe(async url => {
-      var urlFinal = url._body + "/players";
+      const urlFinal = url._body + '/players';
       this.urlPlayersBaseURL = urlFinal;
-      console.log("Gestor-jugadores:  " +this.urlPlayersBaseURL);
+      console.log('Gestor-jugadores:  ' +this.urlPlayersBaseURL);
     });
 
     this.getURLPivote(CLIENT_ASIGNAR_JUEGOS).subscribe(async url => {
-      var urlFinal = url._body + "";
+      const urlFinal = url._body + '';
       this.urlAssignGamesBaseURL = urlFinal;
-      console.log("Asignar-juegos:  " +this.urlAssignGamesBaseURL);
+      console.log('Asignar-juegos:  ' +this.urlAssignGamesBaseURL);
     });
 
     this.getURLPivote(CLIENT_ASIGNAR_SEGUIDORES).subscribe(async url => {
-      var urlFinal = url._body + "";
+      const urlFinal = url._body + '';
       this.urlAssignFollowersBaseURL = urlFinal;
-      console.log("Asignar-Seguidores:  " +this.urlAssignFollowersBaseURL);
+      console.log('Asignar-Seguidores:  ' +this.urlAssignFollowersBaseURL);
     });
 
     this.getURLPivote(CLIENT_CORBA_NEWS).subscribe(async url => {
-      var urlFinal = url._body + "/corba/news";
+      const urlFinal = url._body + '/corba/news';
       this.urlCorbaNews = urlFinal;
-      console.log("Corba-News:  " +this.urlCorbaNews);
+      console.log('Corba-News:  ' +this.urlCorbaNews);
     });
 
     //TODO: Delete later if don´t needed, this fetches all the info from a servie not just the URI
@@ -79,12 +79,12 @@ export class GamesServiceService {
 
   getGames(){
     return this.http.get(this.urlGamesBaseURL).pipe(map((res: Response) => {
-      console.log("HTTP Code: "+ res.status);
-      var action = "Games arrived";
+      console.log('HTTP Code: '+ res.status);
+      const action = 'Games arrived';
       this.presentToast(res.status.toString(), action );
       return <Game[]>res.json();
       }, error => {
-                    this.presentToast("Error: ", "Check Game Service  running" );
+                    this.presentToast('Error: ', 'Check Game Service  running' );
                     console.log(error.text());
                     }
     
@@ -93,12 +93,12 @@ export class GamesServiceService {
 
   public getNews(): Observable<[]> { 
     return this.http.get(this.urlCorbaNews).pipe(map((res: Response) => {
-      console.log("HTTP Code: " + res.status);
-      var action = "Got News From Server";
+      console.log('HTTP Code: ' + res.status);
+      const action = 'Got News From Server';
       this.presentToast(res.status.toString(), action);
       return <[]>res.json();
     },  error => {
-                this.presentToast("Error: ", "Check Corba Server running" );
+                this.presentToast('Error: ', 'Check Corba Server running' );
                 console.log(error.text());
       }
     
@@ -108,44 +108,44 @@ export class GamesServiceService {
 
   public getPlayers(): Observable<[]> { 
     return this.http.get(this.urlPlayersBaseURL).pipe(map((res: Response) => {
-      console.log("HTTP Code: " + res.status);
+      console.log('HTTP Code: ' + res.status);
       //TODO: Add toast to show res.status code
-      var action = "Got Players";
+      const action = 'Got Players';
       return <[]>res.json();
     }));
   }
 
   public getPlayerById(_id: string): Observable<any> {
-    var getPlayerById = this.urlPlayersBaseURL + "/" + _id;
+    const getPlayerById = this.urlPlayersBaseURL + '/' + _id;
     return this.http.get(getPlayerById).pipe(map((res: Response) => {
-      console.log("HTTP Code: " + res.status);
+      console.log('HTTP Code: ' + res.status);
       //TODO: Add toast to show res.status code
       return res.json();
     }));
   }
 
   public getFollowersById(_id: string): Observable<any> {
-    var getPlayerById = this.urlPlayersBaseURL + "/" + _id + "/followers" ;
+    const getPlayerById = this.urlPlayersBaseURL + '/' + _id + '/followers' ;
     return this.http.get(getPlayerById).pipe(map((res: Response) => {
-      console.log("HTTP Code: " + res.status);
+      console.log('HTTP Code: ' + res.status);
       //TODO: Add toast to show res.status code
       return res.json();
     }));
   }
 
   public getFollowingById(_id: string): Observable<any> {
-    var getPlayerById = this.urlPlayersBaseURL + "/" + _id + "/following" ;
+    const getPlayerById = this.urlPlayersBaseURL + '/' + _id + '/following' ;
     return this.http.get(getPlayerById).pipe(map((res: Response) => {
-      console.log("HTTP Code: " + res.status);
+      console.log('HTTP Code: ' + res.status);
       //TODO: Add toast to show res.status code
       return res.json();
     }));
   }
 
   public getFirstPlayer(): Observable <any>{
-    var urlgetOne = this.urlPlayersBaseURL + "/one";
+    const urlgetOne = this.urlPlayersBaseURL + '/one';
     return this.http.get(urlgetOne).pipe(map((res: Response) => {
-      console.log("HTTP Code: " + res.status);
+      console.log('HTTP Code: ' + res.status);
       //TODO: Add toast to show res.status code
       console.log(res.json());
       return res.json();
@@ -155,15 +155,15 @@ export class GamesServiceService {
 
   savePlayerToDB(player: any){
     console.log(this.urlPlayersBaseURL);
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.post(this.urlPlayersBaseURL, player, options)
     .subscribe( 
           response => {
-                        console.log("Player Added " + response.status);  
-                        var action = "Player Added";
+                        console.log('Player Added ' + response.status);  
+                        const action = 'Player Added';
                         this.presentToast(response.status.toString(), action );                         
                         console.log(response.json());
                       },
@@ -174,16 +174,16 @@ export class GamesServiceService {
   }
 
   updatePlayer(player: any){
-    var updateGameurl = this.urlPlayersBaseURL + "/" + player._id;
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const updateGameurl = this.urlPlayersBaseURL + '/' + player._id;
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.put(updateGameurl, player, options)
     .subscribe( 
           response => {
-                        console.log("Player Updated " + response.status);
-                        var action = "Player updated";
+                        console.log('Player Updated ' + response.status);
+                        const action = 'Player updated';
                         this.presentToast(response.status.toString(), action );
                       },
          error => {
@@ -193,18 +193,18 @@ export class GamesServiceService {
   }
 
   assignGametoPlayer(playerId: string, gameId: string){
-    var assignGameToPlayer = this.urlAssignGamesBaseURL + "/player/" + playerId + "/game/" + gameId;
+    const assignGameToPlayer = this.urlAssignGamesBaseURL + '/player/' + playerId + '/game/' + gameId;
     console.log(assignGameToPlayer);
 
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.put(assignGameToPlayer, body, options)
      .subscribe( 
            response => {
-                         console.log("Game Assigned " + response.status);
-                         var action = "Game assigned";
+                         console.log('Game Assigned ' + response.status);
+                         const action = 'Game assigned';
                          this.presentToast(response.status.toString(), action );                          
                          console.log(response.json());
                        },
@@ -215,17 +215,17 @@ export class GamesServiceService {
   }
 
   followPlayer(playerId: string, toFollowId: string){
-    var followPlayer = this.urlAssignFollowersBaseURL + "/player/" + playerId + "/follower/" + toFollowId;
+    const followPlayer = this.urlAssignFollowersBaseURL + '/player/' + playerId + '/follower/' + toFollowId;
     console.log(followPlayer);
 
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.put(followPlayer, body, options)
      .subscribe( 
            response => {
-                          var action = "Following player ";
+                          const action = 'Following player ';
                           console.log(action + response.status);
                          this.presentToast(response.status.toString(), action);                          
                        },
@@ -236,17 +236,17 @@ export class GamesServiceService {
   }
 
   unfollowPlayer(playerId: string, toUnfollow: string){
-    var unfollowPlayer = this.urlAssignFollowersBaseURL + "/player/" + playerId + "/follower/" + toUnfollow;
+    const unfollowPlayer = this.urlAssignFollowersBaseURL + '/player/' + playerId + '/follower/' + toUnfollow;
     console.log(unfollowPlayer);
 
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.delete(unfollowPlayer)
      .subscribe( 
            response => {
-                          var action = "removed from following ";
+                          const action = 'removed from following ';
                           console.log(action + response.status);
                           this.presentToast(response.status.toString(), action);                          
                        },
@@ -259,15 +259,15 @@ export class GamesServiceService {
 
   saveGameToDB(game: Game){
     console.log(this.urlGamesBaseURL);
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.post(this.urlGamesBaseURL, game, options)
     .subscribe( 
           response => {
-                        console.log("Game Saved " + response.status);  
-                        var action = "Game saved";
+                        console.log('Game Saved ' + response.status);  
+                        const action = 'Game saved';
                         this.presentToast(response.status.toString(), action );                         
                         console.log(response.json());
                       },
@@ -278,16 +278,16 @@ export class GamesServiceService {
   }
 
   updateGame(game: Game){
-    var updateGameurl = this.urlGamesBaseURL + "/" + game._id;
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const updateGameurl = this.urlGamesBaseURL + '/' + game._id;
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.put(updateGameurl, game, options)
     .subscribe( 
           response => {
-                        console.log("Game Updated " + response.status);
-                        var action = "Game updated";
+                        console.log('Game Updated ' + response.status);
+                        const action = 'Game updated';
                         this.presentToast(response.status.toString(), action );                           
                         console.log(response.json());
                       },
@@ -298,17 +298,17 @@ export class GamesServiceService {
   }
 
   deleteGame(gameId: string){
-    var deleteGameurl = this.urlGamesBaseURL + "/" + gameId;
+    const deleteGameurl = this.urlGamesBaseURL + '/' + gameId;
     console.log(deleteGameurl);
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.delete(deleteGameurl, gameId)
     .subscribe( 
           response => {
-                        console.log("Game Deleted " + response.status);
-                        var action = "Game deleted";
+                        console.log('Game Deleted ' + response.status);
+                        const action = 'Game deleted';
                         this.presentToast(response.status.toString(), action );                                                   
                       },
          error => {
@@ -319,17 +319,17 @@ export class GamesServiceService {
 
 
   deletePlayer(plyerId: string){
-    var deletePlayerurl = this.urlPlayersBaseURL + "/" + plyerId;
+    const deletePlayerurl = this.urlPlayersBaseURL + '/' + plyerId;
     console.log(deletePlayerurl);
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.delete(deletePlayerurl, plyerId)
     .subscribe( 
           response => {
-                        console.log("Player Deleted " + response.status);
-                        var action = "Player deleted";
+                        console.log('Player Deleted ' + response.status);
+                        const action = 'Player deleted';
                         this.presentToast(response.status.toString(), action );                                                   
                       },
          error => {
@@ -345,8 +345,8 @@ export class GamesServiceService {
 
   // TODO: delete later, method to get URL of the service using the pivot
   getURL(serviceName:string): any { 
-    this.getURLPivote("CLIENT-GESTIONAR-JUEGOS").subscribe(async url => {
-      console.log("Intentando obtener el valor del cuerpo");
+    this.getURLPivote('CLIENT-GESTIONAR-JUEGOS').subscribe(async url => {
+      console.log('Intentando obtener el valor del cuerpo');
       console.log(url._body);
       return url._body;
     });
@@ -354,7 +354,7 @@ export class GamesServiceService {
 
   async presentToast(code: string, action: string) {
     const toast = await this.toastController.create({
-      message: (code + "  -  " + action),
+      message: (code + '  -  ' + action),
       duration: 1000,
     });
     toast.present();
@@ -369,16 +369,16 @@ export class GamesServiceService {
 
 
   getServiceInfoFull(){
-    console.log("LOOKUP_SERVICE: " + LOOKUP_SERVICE);
-    let body = 1; 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    console.log('LOOKUP_SERVICE: ' + LOOKUP_SERVICE);
+    const body = 1; 
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     this.http.get(this.urlPlayersBaseURL, options)
     .subscribe( 
           response => {
-                        console.log("Service info  " + response.status);  
-                        var action = "Service info ";
+                        console.log('Service info  ' + response.status);  
+                        const action = 'Service info ';
                         this.presentToast(response.status.toString(), action );                         
                         console.log(response.json());
                       },

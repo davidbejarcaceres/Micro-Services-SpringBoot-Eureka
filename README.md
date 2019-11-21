@@ -1,6 +1,8 @@
 # Micro-Services-SpringBoot-Eureka
 SpringBoot Micro-Services implementation and Eureka Discovery
 
+![Arquitechture of the system implemented](https://github.com/davidbejarcaceres/Micro-Services-SpringBoot-Eureka/blob/master/Diagrama.jpg)
+
 Main Features:
 
   - Spring boot
